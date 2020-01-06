@@ -1,5 +1,5 @@
 variables:
-  - group: aumentum-services-dev
+  - group: testvars
 
 jobs:
 - job: PrepareEnvironmentJob
