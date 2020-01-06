@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="TAGov.Common.ExceptionHandler" Version="2018.328.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TAGov.Services.Core.AssessmentEvent.Domain.Models\TAGov.Services.Core.AssessmentEvent.Domain.Models.csproj" />
+    <ProjectReference Include="..\TAGov.Services.Core.AssessmentEvent.Repository\TAGov.Services.Core.AssessmentEvent.Repository.csproj" />
+  </ItemGroup>
+</Project>

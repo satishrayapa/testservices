@@ -1,0 +1,42 @@
+[
+  {
+    "key": "facade.assessmentheader",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/facade.assessmentheader"
+  },
+  {
+    "key": "facade.basevaluesegment",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/facade.basevaluesegment"
+  },
+  {
+    "key": "service.assessmentevent",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/service.assessmentevent"
+  },
+  {
+    "key": "service.basevaluesegment",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/service.basevaluesegment"
+  },
+  {
+    "key": "service.grmevent",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/service.grmevent"
+  },
+  {
+    "key": "service.legalparty",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/service.legalparty"
+  },
+  {
+    "key": "service.revenueobject",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/service.revenueobject"
+  },
+  {
+    "key": "service.legalpartysearch",
+    "partition": "urlservices:%partition%",
+    "value": "%protocol%://%server%/service.legalpartysearch"
+  }
+]

@@ -1,0 +1,169 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{F899A83C-4BE9-4847-86B7-CA515CEA841F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.LegalPartySearch.API", "TAGov.Services.Core.LegalPartySearch.API\TAGov.Services.Core.LegalPartySearch.API.csproj", "{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{69199E4B-90A0-4450-94BF-F6D359AE9B7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.LegalPartySearch.Domain", "TAGov.Services.Core.LegalPartySearch.Domain\TAGov.Services.Core.LegalPartySearch.Domain.csproj", "{F0FE5175-E827-41B2-B9E9-EC41C43504F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.LegalPartySearch.Domain.Models", "TAGov.Services.Core.LegalPartySearch.Domain.Models\TAGov.Services.Core.LegalPartySearch.Domain.Models.csproj", "{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Test", "Domain.Test\Domain.Test.csproj", "{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{EAD16BC6-E179-4630-A126-F874D532A64D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.LegalPartySearch.Repository", "TAGov.Services.Core.LegalPartySearch.Repository\TAGov.Services.Core.LegalPartySearch.Repository.csproj", "{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.Test", "Repository.Test\Repository.Test.csproj", "{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.LegalPartySearch.Operations", "TAGov.Services.Core.LegalPartySearch.Operations\TAGov.Services.Core.LegalPartySearch.Operations.csproj", "{4F3D769F-70EE-4300-B769-B2071B69BD97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Debug|x64.Build.0 = Debug|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Debug|x86.Build.0 = Debug|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Release|x64.ActiveCfg = Release|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Release|x64.Build.0 = Release|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Release|x86.ActiveCfg = Release|Any CPU
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D}.Release|x86.Build.0 = Release|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Debug|x64.Build.0 = Debug|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Debug|x86.Build.0 = Debug|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Release|x64.ActiveCfg = Release|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Release|x64.Build.0 = Release|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Release|x86.ActiveCfg = Release|Any CPU
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0}.Release|x86.Build.0 = Release|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Debug|x64.Build.0 = Debug|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Debug|x86.Build.0 = Debug|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Release|x64.ActiveCfg = Release|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Release|x64.Build.0 = Release|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Release|x86.ActiveCfg = Release|Any CPU
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB}.Release|x86.Build.0 = Release|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Debug|x64.Build.0 = Debug|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Debug|x86.Build.0 = Debug|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Release|x64.ActiveCfg = Release|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Release|x64.Build.0 = Release|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Release|x86.ActiveCfg = Release|Any CPU
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7}.Release|x86.Build.0 = Release|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Debug|x64.Build.0 = Debug|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Debug|x86.Build.0 = Debug|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Release|x64.ActiveCfg = Release|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Release|x64.Build.0 = Release|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Release|x86.ActiveCfg = Release|Any CPU
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F}.Release|x86.Build.0 = Release|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Debug|x64.Build.0 = Debug|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Debug|x86.Build.0 = Debug|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Release|x64.ActiveCfg = Release|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Release|x64.Build.0 = Release|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D}.Release|x86.Build.0 = Release|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Debug|x64.Build.0 = Debug|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Debug|x86.Build.0 = Debug|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Release|x64.ActiveCfg = Release|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Release|x64.Build.0 = Release|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Release|x86.ActiveCfg = Release|Any CPU
+		{4F3D769F-70EE-4300-B769-B2071B69BD97}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B96A35C6-76EE-4E55-9B3E-3D9ABAC1012D} = {F899A83C-4BE9-4847-86B7-CA515CEA841F}
+		{F0FE5175-E827-41B2-B9E9-EC41C43504F0} = {69199E4B-90A0-4450-94BF-F6D359AE9B7A}
+		{50799AA1-C987-4B6F-A6B2-5FA4CCCFCFCB} = {69199E4B-90A0-4450-94BF-F6D359AE9B7A}
+		{35DDFFA4-0E1C-4562-901A-5EACF5FA27E7} = {69199E4B-90A0-4450-94BF-F6D359AE9B7A}
+		{111AB24B-D1BA-4AEB-9D20-17F3937CBA2F} = {EAD16BC6-E179-4630-A126-F874D532A64D}
+		{FE6F79D7-BBD4-4655-9892-70F8A1C5FE4D} = {EAD16BC6-E179-4630-A126-F874D532A64D}
+		{4F3D769F-70EE-4300-B769-B2071B69BD97} = {F899A83C-4BE9-4847-86B7-CA515CEA841F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {804449DE-9759-495F-813D-55469605CA41}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfstta.int.thomson.com:8080/tfs/aumentum
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TAGov.Services.Core.LegalPartySearch.API\\TAGov.Services.Core.LegalPartySearch.API.csproj
+		SccProjectTopLevelParentUniqueName1 = Service.LegalPartySearch.sln
+		SccProjectName1 = TAGov.Services.Core.LegalPartySearch.API
+		SccLocalPath1 = TAGov.Services.Core.LegalPartySearch.API
+		SccProjectUniqueName2 = TAGov.Services.Core.LegalPartySearch.Domain.Models\\TAGov.Services.Core.LegalPartySearch.Domain.Models.csproj
+		SccProjectTopLevelParentUniqueName2 = Service.LegalPartySearch.sln
+		SccProjectName2 = TAGov.Services.Core.LegalPartySearch.Domain.Models
+		SccLocalPath2 = TAGov.Services.Core.LegalPartySearch.Domain.Models
+		SccProjectUniqueName3 = Domain.Test\\Domain.Test.csproj
+		SccProjectTopLevelParentUniqueName3 = Service.LegalPartySearch.sln
+		SccProjectName3 = Domain.Test
+		SccLocalPath3 = Domain.Test
+		SccProjectUniqueName4 = TAGov.Services.Core.LegalPartySearch.Domain\\TAGov.Services.Core.LegalPartySearch.Domain.csproj
+		SccProjectTopLevelParentUniqueName4 = Service.LegalPartySearch.sln
+		SccProjectName4 = TAGov.Services.Core.LegalPartySearch.Domain
+		SccLocalPath4 = TAGov.Services.Core.LegalPartySearch.Domain
+		SccProjectUniqueName5 = Repository.Test\\Repository.Test.csproj
+		SccProjectTopLevelParentUniqueName5 = Service.LegalPartySearch.sln
+		SccProjectName5 = Repository.Test
+		SccLocalPath5 = Repository.Test
+		SccProjectUniqueName6 = TAGov.Services.Core.LegalPartySearch.Repository\\TAGov.Services.Core.LegalPartySearch.Repository.csproj
+		SccProjectTopLevelParentUniqueName6 = Service.LegalPartySearch.sln
+		SccProjectName6 = TAGov.Services.Core.LegalPartySearch.Repository
+		SccLocalPath6 = TAGov.Services.Core.LegalPartySearch.Repository
+		SccProjectUniqueName7 = TAGov.Services.Core.LegalPartySearch.Operations\\TAGov.Services.Core.LegalPartySearch.Operations.csproj
+		SccProjectTopLevelParentUniqueName7 = Service.LegalPartySearch.sln
+		SccProjectName7 = TAGov.Services.Core.LegalPartySearch.Operations
+		SccLocalPath7 = TAGov.Services.Core.LegalPartySearch.Operations
+	EndGlobalSection
+EndGlobal

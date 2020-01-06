@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Models\V1\Constants\**" />
+    <Compile Remove="Models\V1\Enums\**" />
+    <EmbeddedResource Remove="Models\V1\Constants\**" />
+    <EmbeddedResource Remove="Models\V1\Enums\**" />
+    <None Remove="Models\V1\Constants\**" />
+    <None Remove="Models\V1\Enums\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+  </ItemGroup>
+</Project>

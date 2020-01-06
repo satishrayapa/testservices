@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PropertyGroup>
+    <MajorVersionNumber>19</MajorVersionNumber>
+    <MajorVersionNumberFourDigit>2019</MajorVersionNumberFourDigit>
+    <MinorVersionNumber>21</MinorVersionNumber>
+    <UpdateVersionNumber>0</UpdateVersionNumber>
+    <BuildVersionNumber>0000</BuildVersionNumber>
+</PropertyGroup>

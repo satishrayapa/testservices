@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>TAGov.Common.ResourceLocator.Operations.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="TAGov.Common.Operations" Version="2019.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TAGov.Common.ResourceLocator.Repository\TAGov.Common.ResourceLocator.Repository.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <Version>1.0.5</Version>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+	<NoWarn>NU1605</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\TAGov.Services.Core.LegalPartySearch.API.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.0\TAGov.Services.Core.LegalPartySearch.API.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.1" />
+    <PackageReference Include="TAGov.Common.ExceptionHandler" Version="2018.328.2" />
+    <PackageReference Include="TAGov.Common.HealthCheck" Version="2018.328.2" />
+    <PackageReference Include="TAGov.Common.Logging" Version="2018.328.2" />
+    <PackageReference Include="TAGov.Common.Security.Http.Authorization" Version="2018.223.1" />
+    <PackageReference Include="TAGov.Common.Swagger" Version="2018.328.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TAGov.Services.Core.LegalPartySearch.Domain.Models\TAGov.Services.Core.LegalPartySearch.Domain.Models.csproj" />
+    <ProjectReference Include="..\TAGov.Services.Core.LegalPartySearch.Domain\TAGov.Services.Core.LegalPartySearch.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <ItemGroup>
+      <DocFile Include="bin\**\**\TAGov.Services.Core.LegalPartySearch.API.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DocFile)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="false" />
+  </Target>
+</Project>

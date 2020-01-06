@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>TAGov.Services.Core.GrmEvent.Operations.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="TAGov.Common.Operations" Version="2018.328.2" />
+  </ItemGroup>
+</Project>

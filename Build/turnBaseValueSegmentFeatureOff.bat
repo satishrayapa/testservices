@@ -1,0 +1,2 @@
+curl -X PUT --header "Content-Type: application/json" --header "Accept: application/json" -d "{ 'key': 'BaseValueSegmentFeature', 'partition': 'DEV', 'value': 'false' }" "http://c592xfglumwb1.ecomqc.tlrg.com/common.resourcelocator/v1/Resources/DEV/BaseValueSegmentFeature" --verbose
+pause

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4df74383-8455-457d-b1fe-c210131b3866" ChangeDateTime="03/27/2017 14:34:47">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSValue].[BVSTranId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSValue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSValueHeaderID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a1a70298-f050-42d6-8da5-9f81210593ce" ChangeDateTime="03/27/2017 14:34:51">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSValue].[BVSValueHeaderID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSValue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSValueHeaderId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="07fc2a22-a985-4d51-a5bc-da5752ad5d75" ChangeDateTime="03/27/2017 14:36:37">
+    <Property Name="ElementName" Value="[dbo].[BVSValueHeader].[BaseYear]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BVSValueHeader]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GRMEventId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="924b1d75-94ff-4415-aa01-8055c4547a2b" ChangeDateTime="03/27/2017 14:37:15">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSOwnerValue].[BVSValueId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSOwnerValue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSValueHeaderId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="96b58fd7-9a3f-4c95-9476-d5bf845b9421" ChangeDateTime="03/27/2017 15:06:29">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSTran].[BVSTranType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSTran]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSTranTypeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2dd20de1-434a-4b49-819e-0c7c5cd19bc3" ChangeDateTime="03/28/2017 19:13:30">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSAsmtRevn].[BVSStatusCd]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSAsmtRevn]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSStatusTypeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="66dbbed5-71c5-45a0-a789-10987f3bff01" ChangeDateTime="03/28/2017 19:14:24">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[FK_BVSAsmtRevn_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSAsmtRevn]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_BVSAsmtRevn_BVSStatusType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b20b2d97-9e6a-47e4-b6c7-79ac5c2ac6e6" ChangeDateTime="04/04/2017 20:47:51">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSTran].[BVSTranTypeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSTran]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSTranType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4ae62465-cfa1-4a00-8c25-6a2723929e5e" ChangeDateTime="04/04/2017 20:48:09">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSValue].[SubComponentId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSValue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SubComponent" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e7fed56a-8f0d-49ce-a1da-f7e045977384" ChangeDateTime="04/04/2017 20:48:27">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSOwner].[Percent]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSOwner]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BIPercent" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bde5ee08-4c76-4b55-abdc-ff043fe49a40" ChangeDateTime="04/04/2017 20:48:47">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[BVSAsmtRevn].[BVSStatusTypeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[BVSAsmtRevn]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSStatusType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a65f629c-14ea-4cb2-b5a5-ef44eb7a0612" ChangeDateTime="04/05/2017 14:09:32">
+    <Property Name="ElementName" Value="[Service.BaseValueSegment].[AsmtRevnBVS].[BVSStatusType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Service.BaseValueSegment].[AsmtRevnBVS]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BVSStatusTypeId" />
+  </Operation>
+</Operations>

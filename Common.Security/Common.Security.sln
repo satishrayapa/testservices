@@ -1,0 +1,138 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{0597F52C-859E-4848-9E4A-FDB1C28A24F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.Security.API", "TAGov.Common.Security.API\TAGov.Common.Security.API.csproj", "{B57D3BBE-900E-4CC5-8526-C1F2F4DF70D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D6296B40-25FB-43E6-80A9-44D8FDCE8AC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{E50BC593-C9F5-4134-828A-A59CC938448C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2CF800A5-0329-44CF-B1B8-91BEB74B7E34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5F321705-C4A7-4D6C-B218-AC4179070D7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.Security.Domain", "TAGov.Common.Security.Domain\TAGov.Common.Security.Domain.csproj", "{D024609A-5875-46AF-A5F4-9A6A67E28F3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.Security.Repository", "TAGov.Common.Security.Repository\TAGov.Common.Security.Repository.csproj", "{7014546B-9746-4259-8EDF-3437DFB2175B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.Tests", "Repository.Tests\Repository.Tests.csproj", "{08C5F90A-0112-4823-987C-34795B012504}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{FD26D844-A567-4DFC-B719-9B221ED950D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.Security.Claims", "TAGov.Common.Security.Claims\TAGov.Common.Security.Claims.csproj", "{E0008F97-4DCB-4C78-9B36-3A20630CD28B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.Security.Http.Authorization", "TAGov.Common.Security.Http.Authorization\TAGov.Common.Security.Http.Authorization.csproj", "{FF2F16AF-397C-44FF-A314-EF7A38C847A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.Security.Domain.Models", "TAGov.Common.Security.Domain.Models\TAGov.Common.Security.Domain.Models.csproj", "{55D16DFC-6917-4651-A182-201D33C3B901}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.Security.Operations", "TAGov.Common.Security.Operations\TAGov.Common.Security.Operations.csproj", "{A2D51FA9-64E4-4E85-85D5-C001BFC513FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B57D3BBE-900E-4CC5-8526-C1F2F4DF70D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57D3BBE-900E-4CC5-8526-C1F2F4DF70D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57D3BBE-900E-4CC5-8526-C1F2F4DF70D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57D3BBE-900E-4CC5-8526-C1F2F4DF70D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D024609A-5875-46AF-A5F4-9A6A67E28F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D024609A-5875-46AF-A5F4-9A6A67E28F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D024609A-5875-46AF-A5F4-9A6A67E28F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D024609A-5875-46AF-A5F4-9A6A67E28F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7014546B-9746-4259-8EDF-3437DFB2175B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7014546B-9746-4259-8EDF-3437DFB2175B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7014546B-9746-4259-8EDF-3437DFB2175B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7014546B-9746-4259-8EDF-3437DFB2175B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08C5F90A-0112-4823-987C-34795B012504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C5F90A-0112-4823-987C-34795B012504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C5F90A-0112-4823-987C-34795B012504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C5F90A-0112-4823-987C-34795B012504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD26D844-A567-4DFC-B719-9B221ED950D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD26D844-A567-4DFC-B719-9B221ED950D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD26D844-A567-4DFC-B719-9B221ED950D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD26D844-A567-4DFC-B719-9B221ED950D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0008F97-4DCB-4C78-9B36-3A20630CD28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0008F97-4DCB-4C78-9B36-3A20630CD28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0008F97-4DCB-4C78-9B36-3A20630CD28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0008F97-4DCB-4C78-9B36-3A20630CD28B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF2F16AF-397C-44FF-A314-EF7A38C847A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF2F16AF-397C-44FF-A314-EF7A38C847A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF2F16AF-397C-44FF-A314-EF7A38C847A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF2F16AF-397C-44FF-A314-EF7A38C847A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D16DFC-6917-4651-A182-201D33C3B901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D16DFC-6917-4651-A182-201D33C3B901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D16DFC-6917-4651-A182-201D33C3B901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D16DFC-6917-4651-A182-201D33C3B901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D51FA9-64E4-4E85-85D5-C001BFC513FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D51FA9-64E4-4E85-85D5-C001BFC513FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D51FA9-64E4-4E85-85D5-C001BFC513FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D51FA9-64E4-4E85-85D5-C001BFC513FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B57D3BBE-900E-4CC5-8526-C1F2F4DF70D9} = {0597F52C-859E-4848-9E4A-FDB1C28A24F0}
+		{2CF800A5-0329-44CF-B1B8-91BEB74B7E34} = {D6296B40-25FB-43E6-80A9-44D8FDCE8AC3}
+		{5F321705-C4A7-4D6C-B218-AC4179070D7E} = {E50BC593-C9F5-4134-828A-A59CC938448C}
+		{D024609A-5875-46AF-A5F4-9A6A67E28F3C} = {D6296B40-25FB-43E6-80A9-44D8FDCE8AC3}
+		{7014546B-9746-4259-8EDF-3437DFB2175B} = {E50BC593-C9F5-4134-828A-A59CC938448C}
+		{08C5F90A-0112-4823-987C-34795B012504} = {5F321705-C4A7-4D6C-B218-AC4179070D7E}
+		{FD26D844-A567-4DFC-B719-9B221ED950D2} = {2CF800A5-0329-44CF-B1B8-91BEB74B7E34}
+		{E0008F97-4DCB-4C78-9B36-3A20630CD28B} = {D6296B40-25FB-43E6-80A9-44D8FDCE8AC3}
+		{FF2F16AF-397C-44FF-A314-EF7A38C847A1} = {D6296B40-25FB-43E6-80A9-44D8FDCE8AC3}
+		{55D16DFC-6917-4651-A182-201D33C3B901} = {D6296B40-25FB-43E6-80A9-44D8FDCE8AC3}
+		{A2D51FA9-64E4-4E85-85D5-C001BFC513FA} = {0597F52C-859E-4848-9E4A-FDB1C28A24F0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F631A73-4AB1-4999-ACD9-77923A113532}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfstta.int.thomson.com:8080/tfs/aumentum
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TAGov.Common.Security.API\\TAGov.Common.Security.API.csproj
+		SccProjectTopLevelParentUniqueName1 = Common.Security.sln
+		SccProjectName1 = TAGov.Common.Security.API
+		SccLocalPath1 = TAGov.Common.Security.API
+		SccProjectUniqueName2 = TAGov.Common.Security.Domain\\TAGov.Common.Security.Domain.csproj
+		SccProjectTopLevelParentUniqueName2 = Common.Security.sln
+		SccProjectName2 = TAGov.Common.Security.Domain
+		SccLocalPath2 = TAGov.Common.Security.Domain
+		SccProjectUniqueName3 = TAGov.Common.Security.Repository\\TAGov.Common.Security.Repository.csproj
+		SccProjectTopLevelParentUniqueName3 = Common.Security.sln
+		SccProjectName3 = TAGov.Common.Security.Repository
+		SccLocalPath3 = TAGov.Common.Security.Repository
+		SccProjectUniqueName4 = Repository.Tests\\Repository.Tests.csproj
+		SccProjectTopLevelParentUniqueName4 = Common.Security.sln
+		SccProjectName4 = Repository.Tests
+		SccLocalPath4 = Repository.Tests
+		SccProjectUniqueName5 = Domain.Tests\\Domain.Tests.csproj
+		SccProjectTopLevelParentUniqueName5 = Common.Security.sln
+		SccProjectName5 = Domain.Tests
+		SccLocalPath5 = Domain.Tests
+		SccProjectUniqueName6 = TAGov.Common.Security.Claims\\TAGov.Common.Security.Claims.csproj
+		SccProjectTopLevelParentUniqueName6 = Common.Security.sln
+		SccProjectName6 = TAGov.Common.Security.Claims
+		SccLocalPath6 = TAGov.Common.Security.Claims
+		SccProjectUniqueName7 = TAGov.Common.Security.Http.Authorization\\TAGov.Common.Security.Http.Authorization.csproj
+		SccProjectTopLevelParentUniqueName7 = Common.Security.sln
+		SccProjectName7 = TAGov.Common.Security.Http.Authorization
+		SccLocalPath7 = TAGov.Common.Security.Http.Authorization
+		SccProjectUniqueName8 = TAGov.Common.Security.Domain.Models\\TAGov.Common.Security.Domain.Models.csproj
+		SccProjectTopLevelParentUniqueName8 = Common.Security.sln
+		SccProjectName8 = TAGov.Common.Security.Domain.Models
+		SccLocalPath8 = TAGov.Common.Security.Domain.Models
+		SccProjectUniqueName9 = TAGov.Common.Security.Operations\\TAGov.Common.Security.Operations.csproj
+		SccProjectTopLevelParentUniqueName9 = Common.Security.sln
+		SccProjectName9 = TAGov.Common.Security.Operations
+		SccLocalPath9 = TAGov.Common.Security.Operations
+	EndGlobalSection
+EndGlobal

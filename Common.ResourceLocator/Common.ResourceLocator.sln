@@ -1,0 +1,176 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{C78A1DE6-8F85-4034-930E-F3589A56E005}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.ResourceLocator.Repository", "TAGov.Common.ResourceLocator.Repository\TAGov.Common.ResourceLocator.Repository.csproj", "{C8A26E19-9E89-437E-81A3-8D88326F185E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{565F605E-7260-4967-A445-69771E9A0DC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2E703346-4E2B-4775-9437-3536BDDF160E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.Tests", "Repository.Tests\Repository.Tests.csproj", "{A3938F46-9558-47C6-921B-916D75BEB620}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1369103C-EDE6-4315-9DD2-F39D22CE6B50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{15BD1C93-A601-4BFD-9E02-4A082645C920}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.ResourceLocator.Domain", "TAGov.Common.ResourceLocator.Domain\TAGov.Common.ResourceLocator.Domain.csproj", "{41340B35-6F41-420E-B38A-8C9C045B161F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.ResourceLocator.Domain.Models", "TAGov.Common.ResourceLocator.Domain.Models\TAGov.Common.ResourceLocator.Domain.Models.csproj", "{615AA282-C83D-479D-87BA-10AA1406A4F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.ResourceLocator.API", "TAGov.Common.ResourceLocator.API\TAGov.Common.ResourceLocator.API.csproj", "{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Common.ResourceLocator.Operations", "TAGov.Common.ResourceLocator.Operations\TAGov.Common.ResourceLocator.Operations.csproj", "{ABCFDD80-201B-484E-B653-794D66245000}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Debug|x64.Build.0 = Debug|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Debug|x86.Build.0 = Debug|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Release|x64.ActiveCfg = Release|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Release|x64.Build.0 = Release|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Release|x86.ActiveCfg = Release|Any CPU
+		{C8A26E19-9E89-437E-81A3-8D88326F185E}.Release|x86.Build.0 = Release|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Debug|x64.Build.0 = Debug|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Debug|x86.Build.0 = Debug|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Release|x64.ActiveCfg = Release|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Release|x64.Build.0 = Release|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Release|x86.ActiveCfg = Release|Any CPU
+		{A3938F46-9558-47C6-921B-916D75BEB620}.Release|x86.Build.0 = Release|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Debug|x64.Build.0 = Debug|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Debug|x86.Build.0 = Debug|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Release|x64.ActiveCfg = Release|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Release|x64.Build.0 = Release|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Release|x86.ActiveCfg = Release|Any CPU
+		{41340B35-6F41-420E-B38A-8C9C045B161F}.Release|x86.Build.0 = Release|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Debug|x64.Build.0 = Debug|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Debug|x86.Build.0 = Debug|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Release|x64.ActiveCfg = Release|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Release|x64.Build.0 = Release|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Release|x86.ActiveCfg = Release|Any CPU
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B}.Release|x86.Build.0 = Release|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Debug|x64.Build.0 = Debug|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Debug|x86.Build.0 = Debug|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Release|x64.ActiveCfg = Release|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Release|x64.Build.0 = Release|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Release|x86.ActiveCfg = Release|Any CPU
+		{615AA282-C83D-479D-87BA-10AA1406A4F2}.Release|x86.Build.0 = Release|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Debug|x64.Build.0 = Debug|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Debug|x86.Build.0 = Debug|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Release|x64.ActiveCfg = Release|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Release|x64.Build.0 = Release|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Release|x86.ActiveCfg = Release|Any CPU
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631}.Release|x86.Build.0 = Release|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Debug|x64.Build.0 = Debug|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Debug|x86.Build.0 = Debug|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Release|x64.ActiveCfg = Release|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Release|x64.Build.0 = Release|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Release|x86.ActiveCfg = Release|Any CPU
+		{ABCFDD80-201B-484E-B653-794D66245000}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8A26E19-9E89-437E-81A3-8D88326F185E} = {C78A1DE6-8F85-4034-930E-F3589A56E005}
+		{2E703346-4E2B-4775-9437-3536BDDF160E} = {C78A1DE6-8F85-4034-930E-F3589A56E005}
+		{A3938F46-9558-47C6-921B-916D75BEB620} = {2E703346-4E2B-4775-9437-3536BDDF160E}
+		{1369103C-EDE6-4315-9DD2-F39D22CE6B50} = {565F605E-7260-4967-A445-69771E9A0DC6}
+		{41340B35-6F41-420E-B38A-8C9C045B161F} = {565F605E-7260-4967-A445-69771E9A0DC6}
+		{F1CE951D-8761-42C1-BA20-5A756B5D2B1B} = {1369103C-EDE6-4315-9DD2-F39D22CE6B50}
+		{615AA282-C83D-479D-87BA-10AA1406A4F2} = {565F605E-7260-4967-A445-69771E9A0DC6}
+		{CD0DF1E5-E323-413B-ACC8-0B796DD7C631} = {15BD1C93-A601-4BFD-9E02-4A082645C920}
+		{ABCFDD80-201B-484E-B653-794D66245000} = {15BD1C93-A601-4BFD-9E02-4A082645C920}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D73E8947-7DF5-4EBF-829B-6B3B3314F518}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfstta.int.thomson.com:8080/tfs/aumentum
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TAGov.Common.ResourceLocator.API\\TAGov.Common.ResourceLocator.API.csproj
+		SccProjectTopLevelParentUniqueName1 = Common.ResourceLocator.sln
+		SccProjectName1 = TAGov.Common.ResourceLocator.API
+		SccLocalPath1 = TAGov.Common.ResourceLocator.API
+		SccProjectUniqueName2 = TAGov.Common.ResourceLocator.Domain.Models\\TAGov.Common.ResourceLocator.Domain.Models.csproj
+		SccProjectTopLevelParentUniqueName2 = Common.ResourceLocator.sln
+		SccProjectName2 = TAGov.Common.ResourceLocator.Domain.Models
+		SccLocalPath2 = TAGov.Common.ResourceLocator.Domain.Models
+		SccProjectUniqueName3 = TAGov.Common.ResourceLocator.Domain\\TAGov.Common.ResourceLocator.Domain.csproj
+		SccProjectTopLevelParentUniqueName3 = Common.ResourceLocator.sln
+		SccProjectName3 = TAGov.Common.ResourceLocator.Domain
+		SccLocalPath3 = TAGov.Common.ResourceLocator.Domain
+		SccProjectUniqueName4 = Domain.Tests\\Domain.Tests.csproj
+		SccProjectTopLevelParentUniqueName4 = Common.ResourceLocator.sln
+		SccProjectName4 = Domain.Tests
+		SccLocalPath4 = Domain.Tests
+		SccProjectUniqueName5 = TAGov.Common.ResourceLocator.Repository\\TAGov.Common.ResourceLocator.Repository.csproj
+		SccProjectTopLevelParentUniqueName5 = Common.ResourceLocator.sln
+		SccProjectName5 = TAGov.Common.ResourceLocator.Repository
+		SccLocalPath5 = TAGov.Common.ResourceLocator.Repository
+		SccProjectUniqueName6 = Repository.Tests\\Repository.Tests.csproj
+		SccProjectTopLevelParentUniqueName6 = Common.ResourceLocator.sln
+		SccProjectName6 = Repository.Tests
+		SccLocalPath6 = Repository.Tests
+		SccProjectUniqueName7 = TAGov.Common.ResourceLocator.Operations\\TAGov.Common.ResourceLocator.Operations.csproj
+		SccProjectTopLevelParentUniqueName7 = Common.ResourceLocator.sln
+		SccProjectName7 = TAGov.Common.ResourceLocator.Operations
+		SccLocalPath7 = TAGov.Common.ResourceLocator.Operations
+	EndGlobalSection
+EndGlobal

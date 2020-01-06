@@ -1,0 +1,236 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourcesPrefix": {
+      "defaultValue": null,
+      "type": "string",
+      "metadata": {
+        "description": "Prefix to append to all resources created."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "appSku": {
+      "type": "string",
+      "defaultValue": "S1",
+      "metadata": {
+        "description": "The SKU/tier for the App Service."
+      }
+    },
+    "allowedIpAddresses": {
+      "type": "string",
+      "metadata": {
+        "description": "Allowed IP Addresses that can access the services websites."
+      }
+    },
+    "siteNames": {
+      "type": "string",
+      "metadata": {
+        "description": "List of services website names."
+      }
+    },
+    "tagEnvironmentType": {
+      "type": "string",
+      "metadata": {
+        "description": "TR/Government Tagging standard for environment type."
+      }
+    },
+    "tagFinancialIdentifier": {
+      "type": "string",
+      "metadata": {
+        "description": "TR/Government Tagging standard for financial identifier."
+      }
+    },
+    "tagApplicationAssetInsightId": {
+      "type": "string",
+      "metadata": {
+        "description": "TR/Government Tagging standard for application asset insight Id."
+      }
+    },
+    "tagResourceOwner": {
+      "type": "string",
+      "metadata": {
+        "description": "TR/Government Tagging standard for resource owner."
+      }
+    }
+  },
+  "variables": {
+    "aumentum-website": "[concat('https://', parameters('resourcesPrefix'), 'app.azurewebsites.net')]",
+    "allowed_ip_addresses": "[split(parameters('allowedIpAddresses'), ',')]",
+    "site_names": "[split(parameters('siteNames'), ',')]",
+    "app_insights_name": "[concat(fn.getBaseName(parameters('resourcesPrefix')), '-app-insights')]",
+    "stack_tags": {
+      "lumen-stackname": "[parameters('resourcesPrefix')]",
+      "tr-application-asset-insight-id": "[parameters('tagApplicationAssetInsightId')]",
+      "tr-environment-type": "[parameters('tagEnvironmentType')]",
+      "tr-financial-identifier": "[parameters('tagFinancialIdentifier')]",
+      "tr-resource-owner": "[parameters('tagResourceOwner')]"
+    },
+    "copy": [
+      {
+        "name": "ip_security_restrictions",
+        "count": "[length(variables('allowed_ip_addresses'))]",
+        "input": {
+          "ipAddress": "[variables('allowed_ip_addresses')[copyIndex('ip_security_restrictions')]]",
+          "action": "Allow",
+          "tag": "Default",
+          "priority": 300,
+          "name": "[concat('OnlyTR',copyIndex('ip_security_restrictions'))]"
+        }
+      }
+    ]
+  },
+  "functions": [
+    {
+      "namespace": "fn",
+      "members": {
+        "getBaseName": {
+          "parameters": [
+            {
+              "name": "inputValue",
+              "type": "string"
+            }
+          ],
+          "output": {
+            "type": "string",
+            "value": "[replace(parameters('inputValue'),'-','')]"
+          }
+        }
+      }
+    },
+    {
+      "namespace": "fn",
+      "members": {
+        "getResourceName": {
+          "parameters": [
+            {
+              "name": "inputValue",
+              "type": "string"
+            },
+            {
+              "name": "maxLength",
+              "type": "int"
+            }
+          ],
+          "output": {
+            "type": "string",
+            "value": "[if(less(length(parameters('inputValue')), parameters('maxLength')), parameters('inputValue'), substring(parameters('inputValue'),0,parameters('maxLength')) )]"
+          }
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2018-02-01",
+      "name": "[concat(fn.getBaseName(parameters('resourcesPrefix')), variables('site_names')[copyIndex()], '-plan')]",
+      "copy": {
+        "name": "websiteplancopy",
+        "count": "[length(variables('site_names'))]"
+      },
+      "location": "[parameters('location')]",
+      "tags": "[variables('stack_tags')]",
+      "sku": {
+        "name": "[parameters('appSku')]"
+      },
+      "properties": {}
+    },
+    {
+      "apiVersion": "2019-08-01",
+      "type": "Microsoft.Web/sites",
+      "kind": "app",
+      "name": "[concat(fn.getBaseName(parameters('resourcesPrefix')), variables('site_names')[copyIndex()])]",
+      "copy": {
+        "name": "websitecopy",
+        "count": "[length(variables('site_names'))]"
+      },
+      "location": "[parameters('location')]",
+      "tags": "[variables('stack_tags')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', concat(fn.getBaseName(parameters('resourcesPrefix')), variables('site_names')[copyIndex()], '-plan'))]",
+        "[resourceId('Microsoft.Insights/components', variables('app_insights_name'))]"
+      ],
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', concat(fn.getBaseName(parameters('resourcesPrefix')), variables('site_names')[copyIndex()], '-plan'))]",
+        "siteConfig": {
+          "appSettings": [
+            {
+              "name": "ASPNETCORE_ENVIRONMENT",
+              "value": "Development",
+              "slotSetting": false
+            },
+            {
+              "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+              "value": "[reference(resourceId('microsoft.insights/components/', variables('app_insights_name')), '2015-05-01').InstrumentationKey]",
+              "slotSetting": false
+            },
+            {
+              "name": "APPINSIGHTS_PROFILERFEATURE_VERSION",
+              "value": "1.0.0",
+              "slotSetting": false
+            },
+            {
+              "name": "APPINSIGHTS_SNAPSHOTFEATURE_VERSION",
+              "value": "1.0.0",
+              "slotSetting": false
+            },
+            {
+              "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
+              "value": "~2",
+              "slotSetting": false
+            },
+            {
+              "name": "DiagnosticServices_EXTENSION_VERSION",
+              "value": "~3",
+              "slotSetting": false
+            },
+            {
+              "name": "InstrumentationEngine_EXTENSION_VERSION",
+              "value": "disabled",
+              "slotSetting": false
+            },
+            {
+              "name": "SnapshotDebugger_EXTENSION_VERSION",
+              "value": "disabled",
+              "slotSetting": false
+            },
+            {
+              "name": "XDT_MicrosoftApplicationInsights_BaseExtensions",
+              "value": "disabled",
+              "slotSetting": false
+            },
+            {
+              "name": "XDT_MicrosoftApplicationInsights_Mode",
+              "value": "recommended",
+              "slotSetting": false
+            }
+          ],
+          "cors": {
+            "allowedOrigins": [
+              "[variables('aumentum-website')]"
+            ]
+          },
+          "ipSecurityRestrictions": []
+        }
+      }
+    },
+    {
+      "apiVersion": "2018-05-01-preview",
+      "name": "[variables('app_insights_name')]",
+      "type": "microsoft.insights/components",
+      "location": "[parameters('location')]",
+      "tags": "[variables('stack_tags')]",
+      "properties": {
+        "ApplicationId": "[variables('app_insights_name')]",
+        "Request_Source": "IbizaWebAppExtensionCreate"
+      }
+    }
+  ]
+}

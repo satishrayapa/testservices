@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>TAGov.Services.Core.LegalPartySearch.Domain.Models</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Thomson Reuters Team Lumen</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Legal Party Search Domain Models</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2018, Thomson Reuters</copyright>
+    <tags>legalpartysearch searchlegalparty legalparty legal party search</tags>
+  </metadata>
+</package>

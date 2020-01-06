@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <Version>1.0.5</Version>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Data\ActiveAndInactiveLegalPartyResults.json" />
+    <None Remove="Data\AliasTypeSearchResults.json" />
+    <None Remove="Data\AlphaNumericPinInActiveAndActiveLPRs.json" />
+    <None Remove="Data\LatestActiveLPNoRevObjSearchResults.json" />
+    <None Remove="Data\LatestActiveLPSearchResults.json" />
+    <None Remove="Data\MorethanOneResultSitusPinSearch.json" />
+    <None Remove="Data\MultipleLegalPartyAddressesOfSameDateMultipleEffectiveRevenueObjects.json" />
+    <None Remove="Data\OldPinNewPinSearchResults.json" />
+    <None Remove="Data\OwnedPins.json" />
+    <None Remove="Data\SearchGroupedbyRevenueObjAndLegalPartyResults.json" />
+    <None Remove="Data\SearchPinStartWithZero.json" />
+    <None Remove="Data\SearchPinWithMultipleSitusAndFilterAddressbyMaxEffectiveDateResults.json" />
+    <None Remove="Data\SitusPrimaryOwnerActiveSearchResult.json" />
+    <None Remove="Data\SplitPinMailingSearchResults.json" />
+    <None Remove="Data\SplitPinSitusSearchResults.json" />
+    <None Remove="Data\ZeroResultsReturn.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\ActiveAndInactiveLegalPartyResults.json" />
+    <EmbeddedResource Include="Data\AlphaNumericPinInActiveAndActiveLPRs.json" />
+    <EmbeddedResource Include="Data\LatestActiveLPNoRevObjSearchResults.json" />
+    <EmbeddedResource Include="Data\AliasTypeSearchResults.json" />
+    <EmbeddedResource Include="Data\LatestActiveLPSearchResults.json" />
+    <EmbeddedResource Include="Data\MorethanOneResultSitusPinSearch.json" />
+    <EmbeddedResource Include="Data\MultipleLegalPartyAddressesOfSameDateMultipleEffectiveRevenueObjects.json" />
+    <EmbeddedResource Include="Data\OldPinNewPinSearchResults.json" />
+    <EmbeddedResource Include="Data\OwnedPins.json" />
+    <EmbeddedResource Include="Data\SearchGroupedbyRevenueObjAndLegalPartyResults.json" />
+    <EmbeddedResource Include="Data\SearchPinStartWithZero.json" />
+    <EmbeddedResource Include="Data\SearchPinWithMultipleSitusAndFilterAddressbyMaxEffectiveDateResults.json" />
+    <EmbeddedResource Include="Data\SitusPrimaryOwnerActiveSearchResult.json" />
+    <EmbeddedResource Include="Data\SplitPinMailingSearchResults.json" />
+    <EmbeddedResource Include="Data\SplitPinSitusSearchResults.json" />
+    <EmbeddedResource Include="Data\ZeroResultsReturn.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.2" />
+    <PackageReference Include="Moq" Version="4.8.2" />
+    <PackageReference Include="Shouldly" Version="3.0.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TAGov.Services.Core.LegalPartySearch.Domain.Models\TAGov.Services.Core.LegalPartySearch.Domain.Models.csproj" />
+    <ProjectReference Include="..\TAGov.Services.Core.LegalPartySearch.Domain\TAGov.Services.Core.LegalPartySearch.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+</Project>

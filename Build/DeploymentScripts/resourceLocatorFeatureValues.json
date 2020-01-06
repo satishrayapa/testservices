@@ -1,0 +1,17 @@
+[
+  {
+    "key": "BaseValueSegmentFeature",
+    "partition": "%partition%",
+    "value": "%bvsfeature%"
+  },
+  {
+    "key": "LegalPartySearchFeature",
+    "partition": "%partition%",
+    "value": "%searchfeature%"
+  },
+  {
+    "key": "RevenueObjectSearchFeature",
+    "partition": "%partition%",
+    "value": "%searchfeature%"
+  }
+]

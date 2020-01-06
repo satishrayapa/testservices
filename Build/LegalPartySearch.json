@@ -1,0 +1,146 @@
+{
+	"Microservices": [
+		{
+			"ServiceName": "Common.Security",
+			"ServicePort": "50000",
+			"RepositoryDirectory": "..\\Common.Security\\TAGov.Common.Security.Repository",
+			"DbSetIdentityConnectionStrings": [
+				"common.security.connectionString"
+			],
+			"DbSetAumentumConnectionStrings": [
+				"aumentumSecurity.connectionString"
+			],
+			"UpdateDbContexts": [
+				"ProxyConfigurationDbContext",
+				"ProxyPersistedGrantDbContext",
+				"AumentumSecurityContext"
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Common.Security",
+			"IsAuthority": "true",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+				"DefaultConnection"
+			],
+			"WebAumentumConnectionStrings": [
+				"Permissions"
+			],
+			"SwaggerJsonURL" : [
+				"v1"
+			],
+			"Startup": "..\\Common.Security\\TAGov.Common.Security.API"
+		},
+		{
+			"ServiceName": "Common.ResourceLocator",
+			"ServicePort": "50001",
+			"RepositoryDirectory": "..\\Common.ResourceLocator\\TAGov.Common.ResourceLocator.Repository",
+			"DbSetIdentityConnectionStrings": [
+				"ResourceContext"
+			],
+			"DbSetAumentumConnectionStrings": [
+				"common.resourceLocator.connectionString"
+			],
+			"UpdateDbContexts": [
+				"ResourceContext"
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Common.ResourceLocator",
+			"IsAuthority": "false",
+			"IsResourceLocator": "true",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Resource"
+			],
+			"SwaggerJsonURL" : [
+				"v1", "v1.1"
+			],
+			"Startup": "..\\Common.ResourceLocator\\TAGov.Common.ResourceLocator.API"	
+		},
+		{
+			"ServiceName": "Service.LegalPartySearch",
+			"ServicePort": "50002",
+			"RepositoryDirectory": "..\\Service.LegalPartySearch\\TAGov.Services.Core.LegalPartySearch.Repository",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+				"service.legalpartysearch.connectionString"
+			],
+			"UpdateDbContexts": [
+				"SearchLegalPartyContext"
+			],
+			"DbEnvironmentVariables": [ 
+				{
+					"key": "service.legalpartysearch.commandTimeout",
+					"value": "3600"
+				}
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Service.LegalPartySearch",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Aumentum"
+			],
+			"SwaggerJsonURL" : [
+				"v1", "v1.1"
+			],
+			"Startup": "..\\Service.LegalPartySearch\\TAGov.Services.Core.LegalPartySearch.API"	
+		}
+	],
+	"ResourceLocator":[
+		{
+			"sslEnabled": "false",
+			"partition": "dev",
+			"key": "LegalPartySearchFeature",
+			"value": "true"
+		},
+		{
+			"sslEnabled": "false",
+			"partition": "dev",
+			"key": "RevenueObjectSearchFeature",
+			"value": "true"
+		},
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Service.LegalPartySearch",
+			"value": "INFER_URL_FROM_KEY"
+		}		
+	],
+	"WebConfigOverrides": [
+		{
+			"key": "TAGov.Common.Security.ClientScope",
+			"value": "api.common.resourcelocator api.service.legalpartysearch"
+		}
+	],
+	"WindowsServices": [
+		{
+			"ServiceName": "Process.LegalPartySearchDataSyncCoordinator",
+			"Directory": "..\\..\\Processes\\Process.Sync.LegalPartySearch.Coordinator",
+			"Solution": "TAGov.Process.Sync.LegalPartySearch.Coordinator.sln",
+			"ConfigFile": "..\\..\\Processes\\Process.Sync.LegalPartySearch.Coordinator\\TAGov.Process.Sync.LegalPartySearch.Coordinator\\bin\\Debug\\TAGov.Process.Sync.LegalPartySearch.Coordinator.exe.config",
+			"RequireResourceLocatorInConfigFile": "true",
+			"Startup": "..\\..\\Processes\\Process.Sync.LegalPartySearch.Coordinator\\TAGov.Process.Sync.LegalPartySearch.Coordinator\\bin\\Debug\\TAGov.Process.Sync.LegalPartySearch.Coordinator.exe"
+		},
+    {
+      "ServiceName": "Process.LegalPartySearchDataSync",
+      "Directory": "..\\..\\Processes\\Process.Sync.LegalParty",
+      "Solution": "Process.Sync.LegalPartySearch.sln",
+      "ConfigFile": "..\\..\\Processes\\Process.Sync.LegalParty\\Process.Sync.LegalParty\\bin\\Debug\\TAGov.Process.Sync.LegalPartySearch.exe.config",
+      "RequireResourceLocatorInConfigFile": "",
+      "Startup": "..\\..\\Processes\\Process.Sync.LegalParty\\Process.Sync.LegalParty\\bin\\Debug\\TAGov.Process.Sync.LegalPartySearch.exe"
+    }			
+	]
+}

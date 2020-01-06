@@ -1,0 +1,15 @@
+# escape=`
+FROM microsoft/aspnetcore:1.1.2-nanoserver
+
+SHELL ["powershell"]
+
+COPY dockerpublish/ ./Service/
+
+WORKDIR ./Service/
+
+# set environment
+ENV ASPNETCORE_ENVIRONMENT: docker
+
+ENTRYPOINT ["dotnet", "TAGov.Services.Core.LegalParty.API.dll"]
+
+CMD "dotnet ./operations/TAGov.Services.Core.LegalParty.Operations.dll --ef-migrate >> efmigration.log"

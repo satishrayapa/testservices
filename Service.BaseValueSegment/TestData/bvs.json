@@ -1,0 +1,326 @@
+
+  "id": 1,
+  "revenueObjectId": 100001,
+  "baseValueSegmentTransactions": [
+    {
+      "id": 1,
+      "transactionId": 10000,
+      "effectiveStatus": "A",
+      "asOf": "1776-07-04T00:00:00",
+      "baseValueSegmentTransactionTypeId": 0,
+      "baseValueSegmentTransactionType": "100001",
+      "baseValueSegmentOwners": [
+        {
+          "id": 1,
+          "beneficialInterest": null,
+          "beneficialInterestId": 1000,
+          "percent": 100
+        }
+      ],
+      "baseValueSegmentOwnerValues": [
+        {
+          "id": 1,
+          "baseValue": 100000
+        }
+      ],
+      "baseValueSegmentValues": [
+        {
+          "id": 1,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2010,
+          "valueAmount": 100000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "transactionId": 10000,
+      "effectiveStatus": "A",
+      "asOf": "2014-10-10T00:00:00",
+      "baseValueSegmentTransactionTypeId": 0,
+      "baseValueSegmentTransactionType": "100001",
+      "baseValueSegmentOwners": [
+        {
+          "id": 2,
+          "beneficialInterest": null,
+          "beneficialInterestId": 1000,
+          "percent": 70
+        },
+        {
+          "id": 3,
+          "beneficialInterest": null,
+          "beneficialInterestId": 2000,
+          "percent": 30
+        }
+      ],
+      "baseValueSegmentOwnerValues": [
+        {
+          "id": 2,
+          "baseValue": 70000
+        },
+        {
+          "id": 3,
+          "baseValue": 60000
+        }
+      ],
+      "baseValueSegmentValues": [
+        {
+          "id": 2,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2010,
+          "valueAmount": 100000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 3,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2015,
+          "valueAmount": 200000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "transactionId": 10000,
+      "effectiveStatus": "A",
+      "asOf": "2015-10-10T00:00:00",
+      "baseValueSegmentTransactionTypeId": 0,
+      "baseValueSegmentTransactionType": "100001",
+      "baseValueSegmentOwners": [
+        {
+          "id": 4,
+          "beneficialInterest": null,
+          "beneficialInterestId": 2000,
+          "percent": 30
+        },
+        {
+          "id": 5,
+          "beneficialInterest": null,
+          "beneficialInterestId": 2000,
+          "percent": 70
+        }
+      ],
+      "baseValueSegmentOwnerValues": [
+        {
+          "id": 4,
+          "baseValue": 60000
+        },
+        {
+          "id": 5,
+          "baseValue": 154000
+        }
+      ],
+      "baseValueSegmentValues": [
+        {
+          "id": 4,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2015,
+          "valueAmount": 200000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 5,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2016,
+          "valueAmount": 220000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "transactionId": 10000,
+      "effectiveStatus": "A",
+      "asOf": "2016-04-10T00:00:00",
+      "baseValueSegmentTransactionTypeId": 0,
+      "baseValueSegmentTransactionType": "100001",
+      "baseValueSegmentOwners": [
+        {
+          "id": 6,
+          "beneficialInterest": null,
+          "beneficialInterestId": 2000,
+          "percent": 30
+        },
+        {
+          "id": 7,
+          "beneficialInterest": null,
+          "beneficialInterestId": 2000,
+          "percent": 70
+        }
+      ],
+      "baseValueSegmentOwnerValues": [
+        {
+          "id": 6,
+          "baseValue": 60000
+        },
+        {
+          "id": 7,
+          "baseValue": 154000
+        },
+        {
+          "id": 8,
+          "baseValue": 3000
+        },
+        {
+          "id": 9,
+          "baseValue": 7000
+        }
+      ],
+      "baseValueSegmentValues": [
+        {
+          "id": 6,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2015,
+          "valueAmount": 200000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 7,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2016,
+          "valueAmount": 220000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 8,
+          "subComponentId": 1001,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2016,
+          "valueAmount": 10000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "transactionId": 10000,
+      "effectiveStatus": "A",
+      "asOf": "2016-07-10T00:00:00",
+      "baseValueSegmentTransactionTypeId": 0,
+      "baseValueSegmentTransactionType": "100001",
+      "baseValueSegmentOwners": [
+        {
+          "id": 8,
+          "beneficialInterest": null,
+          "beneficialInterestId": 2000,
+          "percent": 30
+        },
+        {
+          "id": 9,
+          "beneficialInterest": null,
+          "beneficialInterestId": 2000,
+          "percent": 20
+        },
+        {
+          "id": 10,
+          "beneficialInterest": null,
+          "beneficialInterestId": 3000,
+          "percent": 50
+        }
+      ],
+      "baseValueSegmentOwnerValues": [
+        {
+          "id": 10,
+          "baseValue": 60000
+        },
+        {
+          "id": 11,
+          "baseValue": 44000
+        },
+        {
+          "id": 12,
+          "baseValue": 3000
+        },
+        {
+          "id": 13,
+          "baseValue": 2000
+        },
+        {
+          "id": 14,
+          "baseValue": 105000
+        },
+        {
+          "id": 15,
+          "baseValue": 20000
+        }
+      ],
+      "baseValueSegmentValues": [
+        {
+          "id": 9,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2015,
+          "valueAmount": 200000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 10,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2016,
+          "valueAmount": 220000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 11,
+          "subComponentId": 1001,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2016,
+          "valueAmount": 10000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 12,
+          "subComponentId": 1000,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2017,
+          "valueAmount": 210000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        },
+        {
+          "id": 13,
+          "subComponentId": 1001,
+          "subComponent": null,
+          "component": null,
+          "baseYear": 2017,
+          "valueAmount": 40000,
+          "percentComplete": 0,
+          "fullValueAmount": 0
+        }
+      ]
+    }
+  ]
+}

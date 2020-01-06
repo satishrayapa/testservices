@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <Version>2017.22.3</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="V1\Enums\**" />
+    <EmbeddedResource Remove="V1\Enums\**" />
+    <None Remove="V1\Enums\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>

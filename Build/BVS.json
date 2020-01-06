@@ -1,0 +1,376 @@
+{
+	"Microservices": [
+		{
+			"ServiceName": "Common.Security",
+			"ServicePort": "50000",
+			"RepositoryDirectory": "..\\Common.Security\\TAGov.Common.Security.Repository",
+			"DbSetIdentityConnectionStrings": [
+				"common.security.connectionString"
+			],
+			"DbSetAumentumConnectionStrings": [
+				"aumentumSecurity.connectionString"
+			],
+			"UpdateDbContexts": [
+				"ProxyConfigurationDbContext",
+				"ProxyPersistedGrantDbContext",
+				"AumentumSecurityContext"
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Common.Security",
+			"IsAuthority": "true",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+				"DefaultConnection"
+			],
+			"WebAumentumConnectionStrings": [
+				"Permissions"
+			],
+			"SwaggerJsonURL" : [
+				"v1"
+			],
+			"Startup": "..\\Common.Security\\TAGov.Common.Security.API"
+		},
+		{
+			"ServiceName": "Common.ResourceLocator",
+			"ServicePort": "50001",
+			"RepositoryDirectory": "..\\Common.ResourceLocator\\TAGov.Common.ResourceLocator.Repository",
+			"DbSetIdentityConnectionStrings": [
+				"ResourceContext"
+			],
+			"DbSetAumentumConnectionStrings": [
+				"common.resourceLocator.connectionString"
+			],
+			"UpdateDbContexts": [
+				"ResourceContext"
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Common.ResourceLocator",
+			"IsAuthority": "false",
+			"IsResourceLocator": "true",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Resource"
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Common.ResourceLocator\\TAGov.Common.ResourceLocator.API"	
+		},
+		{
+			"ServiceName": "Service.BaseValueSegment",
+			"ServicePort": "50002",
+			"RepositoryDirectory": "..\\Service.BaseValueSegment\\TAGov.Services.Core.BaseValueSegment.Repository",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+				"service.basevaluesegment.connectionString"
+			],
+			"UpdateDbContexts": [
+				"BaseValueSegmentContext"
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+				{
+					"key": "grmEventServiceApiUrl",
+					"source": "Service.GrmEvent"
+				}	
+			],
+			"APIDirectory": "..\\Service.BaseValueSegment",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Aumentum"
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Service.BaseValueSegment\\TAGov.Services.Core.BaseValueSegment.API"	
+		},
+		{
+			"ServiceName": "Service.LegalParty",
+			"ServicePort": "50003",
+			"RepositoryDirectory": "..\\Service.LegalParty\\TAGov.Services.Core.LegalParty.Repository",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+
+			],
+			"UpdateDbContexts": [
+
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Service.LegalParty",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Aumentum"
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Service.LegalParty\\TAGov.Services.Core.LegalParty.API"	
+		},
+		{
+			"ServiceName": "Service.RevenueObject",
+			"ServicePort": "50004",
+			"RepositoryDirectory": "..\\Service.RevenueObject\\TAGov.Services.Core.RevenueObject.Repository",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+
+			],
+			"UpdateDbContexts": [
+
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Service.RevenueObject",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Aumentum"
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Service.RevenueObject\\TAGov.Services.Core.RevenueObject.API"	
+		},
+		{
+			"ServiceName": "Service.GrmEvent",
+			"ServicePort": "50005",
+			"RepositoryDirectory": "..\\Service.GrmEvent\\TAGov.Services.Core.GrmEvent.Repository",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+
+			],
+			"UpdateDbContexts": [
+
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Service.GrmEvent",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Aumentum"
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Service.GrmEvent\\TAGov.Services.Core.GrmEvent.API"	
+		},
+		{
+			"ServiceName": "Service.AssessmentEvent",
+			"ServicePort": "50006",
+			"RepositoryDirectory": "..\\Service.AssessmentEvent\\TAGov.Services.Core.AssessmentEvent.Repository",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+
+			],
+			"UpdateDbContexts": [
+
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+			],
+			"APIDirectory": "..\\Service.AssessmentEvent",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+				"Aumentum"
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Service.AssessmentEvent\\TAGov.Services.Core.AssessmentEvent.API"	
+		},
+		{
+			"ServiceName": "Facade.BaseValueSegment",
+			"ServicePort": "50007",
+			"RepositoryDirectory": "",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+
+			],
+			"UpdateDbContexts": [
+
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+				{
+					"key": "assessmentEventServiceApiUrl",
+					"source": "Service.AssessmentEvent"
+				},
+				{
+					"key": "revenueObjectServiceApiUrl",
+					"source": "Service.RevenueObject"
+				},
+				{
+					"key": "legalPartyServiceApiUrl",
+					"source": "Service.LegalParty"
+				},
+				{
+					"key": "baseValueSegmentServiceApiUrl",
+					"source": "Service.BaseValueSegment"
+				},
+				{
+					"key": "grmEventServiceApiUrl",
+					"source": "Service.GrmEvent"
+				}				
+			],
+			"APIDirectory": "..\\Facade.BaseValueSegment",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Facade.BaseValueSegment\\TAGov.Services.Facade.BaseValueSegment.API"	
+		},
+		{
+			"ServiceName": "Facade.AssessmentHeader",
+			"ServicePort": "50008",
+			"RepositoryDirectory": "",
+			"DbSetIdentityConnectionStrings": [
+			],
+			"DbSetAumentumConnectionStrings": [
+
+			],
+			"UpdateDbContexts": [
+
+			],
+			"DbEnvironmentVariables": [
+			],
+			"ServiceEndpoints": [
+				{
+					"key": "assessmentEventServiceApiUrl",
+					"source": "Service.AssessmentEvent"
+				},
+				{
+					"key": "revenueObjectServiceApiUrl",
+					"source": "Service.RevenueObject"
+				},
+				{
+					"key": "legalPartyServiceApiUrl",
+					"source": "Service.LegalParty"
+				},
+				{
+					"key": "baseValueSegmentServiceApiUrl",
+					"source": "Service.BaseValueSegment"
+				}			
+			],
+			"APIDirectory": "..\\Facade.AssessmentHeader",
+			"IsAuthority": "false",
+			"IsResourceLocator": "false",
+			"WebIdentityConnectionStrings": [
+
+			],
+			"WebAumentumConnectionStrings": [
+
+			],
+			"SwaggerJsonURL" : [
+				"v1.1"
+			],
+			"Startup": "..\\Facade.AssessmentHeader\\TAGov.Services.Facade.AssessmentHeader.API"	
+		}		
+	],
+	"ResourceLocator":[
+		{
+			"sslEnabled": "false",
+			"partition": "dev",
+			"key": "BaseValueSegmentFeature",
+			"value": "true"
+		},
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Service.BaseValueSegment",
+			"value": "INFER_URL_FROM_KEY"
+		},
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Service.LegalParty",
+			"value": "INFER_URL_FROM_KEY"
+		},
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Service.RevenueObject",
+			"value": "INFER_URL_FROM_KEY"
+		},
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Service.GrmEvent",
+			"value": "INFER_URL_FROM_KEY"
+		},
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Service.AssessmentEvent",
+			"value": "INFER_URL_FROM_KEY"
+		},		
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Facade.BaseValueSegment",
+			"value": "INFER_URL_FROM_KEY"
+		},		
+		{
+			"sslEnabled": "false",
+			"partition": "urlservices:dev",
+			"key": "Facade.AssessmentHeader",
+			"value": "INFER_URL_FROM_KEY"
+		}			
+	],
+	"WebConfigOverrides": [
+    {
+      "key": "TAGov.Common.Security.ClientScope",
+      "value": "api.common.resourcelocator api.service.basevaluesegment api.service.assessmentevent api.common.resourcelocator api.facade.assessmentheader api.facade.basevaluesegment api.service.grmevent api.service.legalparty api.service.revenueobject api.service.legalpartysearch"
+    }
+	],
+	"WindowsServices": [
+	]
+}

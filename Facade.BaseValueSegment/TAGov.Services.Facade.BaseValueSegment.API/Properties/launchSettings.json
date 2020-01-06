@@ -1,0 +1,47 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:50007/",
+      "sslPort": 0
+    }
+  },
+    "profiles": {
+        "IIS Express": {
+            "commandName": "IISExpress",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "LOCAL"
+            }
+        },
+        "TAGov.Service.Facade.BaseValueSegment.API LOCALTEST": {
+            "commandName": "Project",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "LOCALTEST"
+            },
+            "applicationUrl": "http://localhost:50205"
+        },
+        "TAGov.Service.Facade.BaseValueSegment.API LOCALDEV": {
+            "commandName": "Project",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "LOCALDEV"
+            },
+            "applicationUrl": "http://localhost:50205"
+        },
+        "TAGov.Service.Facade.BaseValueSegment.API DEV": {
+            "commandName": "Project",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "DEV"
+            },
+            "applicationUrl": "http://localhost:50007"
+        }
+    }
+}

@@ -1,0 +1,1 @@
+Get-WmiObject Win32_Process -Filter "name = 'dotnet.exe'" | ForEach-Object { if ($_.CommandLine -like "*TAGov*") { Write-Host $_.ProcessId - $_.CommandLine }  } 

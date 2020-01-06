@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PostBuildEvent>dotnet pack ..\..\..\TAGov.Services.Core.GrmEvent.Domain.Models.csproj</PostBuildEvent>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <Version>1.0.12</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="V1\Enums\**" />
+    <EmbeddedResource Remove="V1\Enums\**" />
+    <None Remove="V1\Enums\**" />
+  </ItemGroup>
+</Project>

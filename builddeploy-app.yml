@@ -1,0 +1,148 @@
+parameters:
+  params: []
+
+jobs:
+  - ${{ each project in parameters.params }}: # This is an example of writing a loop using yaml expressions.
+      - job: Run${{ project.key }}Job
+        pool:
+          vmImage: 'windows-2019'
+        dependsOn:
+          - ${{ project.dependsOn }}
+        variables:
+          DeployResourceGroupName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployResourceGroupName'] ]
+          DeployLocation: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployLocation'] ]
+          DeployStackName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployStackName'] ]
+          AppSku: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppSku'] ]
+          SiteNames: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.SiteNames'] ]
+          AllowedIPAddresses: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AllowedIPAddresses'] ]
+          BuildOnly: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.BuildOnly'] ]
+          AppDataSource: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppDataSource'] ]
+          AppDatabase: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppDatabase'] ]
+          AppUserId: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppUserId'] ]
+          AppUserPassword: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppUserPassword'] ]
+          AppConnectionTimeoutInSeconds: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppConnectionTimeoutInSeconds'] ]
+          StorageName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.StorageName'] ]
+          ContainerName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ContainerName'] ]
+          DatabaseName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DatabaseName'] ]
+          DatabaseServer: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DatabaseServer'] ]
+          ApiBearerToken: $[ dependencies.PrepareEnvironmentJob.outputs['GetApiBearerToken.ApiBearerToken'] ]
+        steps:          
+          - task: AzurePowerShell@4
+            displayName: "Create VNET integration"
+            inputs:
+              scriptType: "FilePath"
+              azureSubscription: "$(Global.AzureSubscription)"
+              scriptArguments: >-
+                -ProjectName $(DeployStackName)${{ project.name }}
+                -SubscriptionKey $(Global.SubscriptionKey)
+                -SubscriptionId $(Global.SubscriptionId)
+                -ResourceGroup $(DeployResourceGroupName)
+                -Region $(DeployLocation)
+                -ApiBearerToken $(ApiBearerToken)
+              scriptPath: "deployment/CreateVnetIntegration.ps1"
+              errorActionPreference: "stop"
+              azurePowerShellVersion: "latestVersion"
+              
+          - task: AzurePowerShell@4
+            displayName: "Download common nuget packages for ${{ project.name }}"
+            inputs:
+              scriptType: "FilePath"
+              azureSubscription: "$(Global.AzureSubscription)"
+              scriptArguments: >-
+                -DestinationDirectory $(Build.ArtifactStagingDirectory)\nuget
+                -ContainerName $(ContainerName)
+                -StorageName $(StorageName)
+                -BlobPrefix $(Build.BuildNumber)/nuget
+                -ResourceGroup $(Global.SharedStorageResourceGroup)
+              scriptPath: "DownloadBlobs.ps1"
+              errorActionPreference: "stop"
+              azurePowerShellVersion: "latestVersion"
+
+          - task: PowerShell@2
+            displayName: "Build/ Test ${{ project.name }}"
+            name: ${{ project.key }} # This will allow us to reference the output of this task somewhere else.
+            inputs:
+              targetType: "filePath"
+              arguments: >-
+                -OutputDirectory $(Build.ArtifactStagingDirectory)\out\${{ project.name }}
+                -ZipFilePath $(Build.ArtifactStagingDirectory)\out\${{ project.key }}.zip
+                -LocalNugetDirectory $(Build.ArtifactStagingDirectory)\nuget
+                -ModelNugetDirectory $(Build.ArtifactStagingDirectory)\modelnuget
+                -ProjectName ${{ project.name }}
+                -ProjectPath ${{ project.path }}
+                -SignFile ${{ project.signFile }}
+                -Version $(Global.Version)
+                -BuildOnly $(BuildOnly)
+              filePath: "BuildTestProject.ps1"
+              errorActionPreference: "stop"
+
+          - task: AzureFileCopy@3
+            displayName: "Copy model nuget file to Azure Blob"
+            condition: and(succeeded(), eq(variables['CreateModelNuget'], 'true'))
+            inputs:
+              sourcePath: $(Build.ArtifactStagingDirectory)\modelnuget
+              azureSubscription: "$(Global.AzureSubscription)"
+              blobPrefix: $(Build.BuildNumber)\nuget
+              destination: azureBlob
+              storage: "$(StorageName)"
+              containerName: "$(ContainerName)"
+
+          - task: AzureFileCopy@3
+            displayName: "Copy build files to Azure Blob"
+            inputs:
+              sourcePath: $(Build.ArtifactStagingDirectory)\out\${{ project.key }}.zip
+              azureSubscription: "$(Global.AzureSubscription)"
+              blobPrefix: $(Build.BuildNumber)\services
+              destination: azureBlob
+              storage: "$(StorageName)"
+              containerName: "$(ContainerName)"
+
+          - task: AzureWebApp@1
+            displayName: "Deploy ${{ project.name }} to Azure"
+            condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
+            inputs:
+              azureSubscription: "$(Global.AzureSubscription)"
+              appType: "webApp"
+              appName: $(DeployStackName)${{ project.name }}
+              package: $(Build.ArtifactStagingDirectory)\out\${{ project.key }}.zip
+              deploymentMethod: "auto"
+              appSettings: >-
+                -Db:EnableMigrations "false"
+                -Database:AumentumCommandTimeout "300"
+                -ServiceApiUrls:assessmentEventServiceApiUrl "https://$(DeployStackName)service-assessmentevent.azurewebsites.net"
+                -ServiceApiUrls:revenueObjectServiceApiUrl "https://$(DeployStackName)service-revenueobject.azurewebsites.net"
+                -ServiceApiUrls:legalPartyServiceApiUrl "https://$(DeployStackName)service-legalparty.azurewebsites.net"
+                -ServiceApiUrls:baseValueSegmentServiceApiUrl "https://$(DeployStackName)service-basevaluesegment.azurewebsites.net"
+                -ServiceApiUrls:grmEventServiceApiUrl "https://$(DeployStackName)service-grmevent.azurewebsites.net"
+                -ConnectionStrings:Aumentum "Data Source=tcp:$(AppDataSource);Database=$(AppDatabase);User Id=$(AppUserId);Password=$(AppUserPassword);Connection Timeout=$(AppConnectionTimeoutInSeconds);"
+                -ConnectionStrings:Resource "Data Source=tcp:$(AppDataSource);Database=$(AppDatabase);User Id=$(AppUserId);Password=$(AppUserPassword);Connection Timeout=$(AppConnectionTimeoutInSeconds);"
+                -ConnectionStrings:DefaultConnection "Data Source=tcp:$(AppDataSource);Database=Identity;User Id=$(AppUserId);Password=$(AppUserPassword);Connection Timeout=$(AppConnectionTimeoutInSeconds);"
+                -ConnectionStrings:Permissions "Data Source=tcp:$(AppDataSource);Database=$(AppDatabase);User Id=$(AppUserId);Password=$(AppUserPassword);Connection Timeout=$(AppConnectionTimeoutInSeconds);"
+                -common.security.connectionString "Data Source=tcp:$(AppDataSource);Database=Identity;User Id=$(AppUserId);Password=$(AppUserPassword);Connection Timeout=$(AppConnectionTimeoutInSeconds);"
+                -common.resourceLocator.connectionString "Data Source=tcp:$(AppDataSource);Database=$(AppDatabase);User Id=$(AppUserId);Password=$(AppUserPassword);Connection Timeout=$(AppConnectionTimeoutInSeconds);"
+                -service.basevaluesegment.connectionString "Data Source=tcp:$(AppDataSource);Database=$(AppDatabase);User Id=$(AppUserId);Password=$(AppUserPassword);Connection Timeout=$(AppConnectionTimeoutInSeconds);"
+                -Security:Authority "https://$(DeployStackName)common-security.azurewebsites.net"
+                -Security:RequireHttpsMetadata "true"
+                -Security:ApplicationName ${{ project.securityApplicationName }}
+                -Security:SigningFilename "sign.json"
+                -Security:CertName ""
+                -InstrumentationEngine_EXTENSION_VERSION "~1"
+                -SnapshotDebugger_EXTENSION_VERSION "~1"
+                -XDT_MicrosoftApplicationInsights_BaseExtensions "~1"
+
+          - task: AzureCLI@2
+            displayName: Run App Service web job(s)
+            condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
+            inputs:
+              azureSubscription: "$(Global.AzureSubscription)"
+              scriptType: ps
+              scriptArguments: -AppName $(DeployStackName)${{ project.name }} -JobName efmigrate -ResourceGroup $(DeployResourceGroupName)
+              scriptLocation: scriptPath
+              scriptPath: "RunWebJob.ps1"
+
+          - task: PublishTestResults@2
+            displayName: "Publish Test Results for ${{ project.name }} (if any)"
+            condition: succeededOrFailed()
+            inputs:
+              testRunner: VSTest
+              testResultsFiles: "**/*.trx"

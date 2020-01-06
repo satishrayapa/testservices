@@ -1,0 +1,123 @@
+{
+  "Microservices": [
+    {
+      "ServiceName": "Common.Security",
+      "ServicePort": "50000",
+      "RepositoryDirectory": "..\\Common.Security\\TAGov.Common.Security.Repository",
+      "DbSetIdentityConnectionStrings": [
+        "common.security.connectionString"
+      ],
+      "DbSetAumentumConnectionStrings": [
+        "aumentumSecurity.connectionString"
+      ],
+      "UpdateDbContexts": [
+        "ProxyConfigurationDbContext",
+        "ProxyPersistedGrantDbContext",
+        "AumentumSecurityContext"
+      ],
+      "DbEnvironmentVariables": [
+      ],
+      "ServiceEndpoints": [
+      ],
+      "APIDirectory": "..\\Common.Security",
+      "IsAuthority": "true",
+      "IsResourceLocator": "false",
+      "WebIdentityConnectionStrings": [
+        "DefaultConnection"
+      ],
+      "WebAumentumConnectionStrings": [
+        "Permissions"
+      ],
+      "SwaggerJsonURL": [
+        "v1"
+      ],
+      "Startup": "..\\Common.Security\\TAGov.Common.Security.API"
+    },
+    {
+      "ServiceName": "Common.ResourceLocator",
+      "ServicePort": "50001",
+      "RepositoryDirectory": "..\\Common.ResourceLocator\\TAGov.Common.ResourceLocator.Repository",
+      "DbSetIdentityConnectionStrings": [
+        "ResourceContext"
+      ],
+      "DbSetAumentumConnectionStrings": [
+        "common.resourceLocator.connectionString"
+      ],
+      "UpdateDbContexts": [
+        "ResourceContext"
+      ],
+      "DbEnvironmentVariables": [
+      ],
+      "ServiceEndpoints": [
+      ],
+      "APIDirectory": "..\\Common.ResourceLocator",
+      "IsAuthority": "false",
+      "IsResourceLocator": "true",
+      "WebIdentityConnectionStrings": [
+      ],
+      "WebAumentumConnectionStrings": [
+        "Resource"
+      ],
+      "SwaggerJsonURL": [
+        "v1.1"
+      ],
+      "Startup": "..\\Common.ResourceLocator\\TAGov.Common.ResourceLocator.API"
+    },
+    {
+      "ServiceName": "Service.MyWorklistSearch",
+      "ServicePort": "50010",
+      "RepositoryDirectory": "..\\Service.MyWorklistSearch\\TAGov.Services.Core.MyWorklistSearch.Repository",
+      "DbSetIdentityConnectionStrings": [
+      ],
+      "DbSetAumentumConnectionStrings": [
+        "service.myworklistsearch.connectionString"
+      ],
+      "UpdateDbContexts": [
+        "SearchMyWorklistContext"
+      ],
+      "DbEnvironmentVariables": [
+        {
+          "key": "service.myworklistsearch.commandTimeout",
+          "value": "3600"
+        }
+      ],
+      "ServiceEndpoints": [
+      ],
+      "APIDirectory": "..\\Service.MyWorklistSearch",
+      "IsAuthority": "false",
+      "IsResourceLocator": "false",
+      "WebIdentityConnectionStrings": [
+      ],
+      "WebAumentumConnectionStrings": [
+        "Aumentum"
+      ],
+      "SwaggerJsonURL": [
+        "v1"
+      ],
+      "Startup": "..\\Service.MyWorklistSearch\\TAGov.Services.Core.MyWorklistSearch.API"
+    }
+  ],
+  "ResourceLocator": [
+    {
+      "sslEnabled": "false",
+      "partition": "dev",
+      "key": "MyWorklistSearchFeature",
+      "value": "true"
+    },
+    {
+      "sslEnabled": "false",
+      "partition": "urlservices:dev",
+      "key": "Service.MyWorklistSearch",
+      "value": "INFER_URL_FROM_KEY"
+    }
+  ],
+  "WebConfigOverrides": [
+    {
+      "key": "TAGov.Common.Security.ClientScope",
+      "value": "api.common.resourcelocator api.service.myworklistsearch"
+    }
+  ],
+  "WindowsServices": [
+  ]
+
+}

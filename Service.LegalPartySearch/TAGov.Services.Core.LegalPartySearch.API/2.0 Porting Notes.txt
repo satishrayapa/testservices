@@ -1,0 +1,13 @@
+﻿On changing the target framework for all projects to .NET Core 2.0, encountered the following error numerous times:
+
+Error	CS0433	The type 'SqlDbType' exists in both 'System.Data.Common, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and 'System.Data.SqlClient, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'	TAGov.Services.Core.LegalPartySearch.Repository	C:\TR\Modules\Services\Service.LegalPartySearch\TAGov.Services.Core.LegalPartySearch.Repository\Implementations\V1\FreeTextSearchLegalPartyRepository.cs	129	N/A
+
+To fix, add the Nuget package System.Data.SqlClient v4.4.2 to the Repository project.
+
+To change a target framework to .NET Standard 2.0, modify the relevant .csproj file by changing the 
+<TargetFramework> element to a value of:
+
+netstandard2.0
+
+
+

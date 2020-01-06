@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>TAGov.Services.Core.RevenueObject.Domain</AssemblyName>
+    <RootNamespace>TAGov.Services.Core.RevenueObject.Domain</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Mapping\V1\MarketAndRestrictedValueMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="TAGov.Common.ExceptionHandler" Version="2018.323.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TAGov.Services.Core.RevenueObject.Domain.Models\TAGov.Services.Core.RevenueObject.Domain.Models.csproj" />
+    <ProjectReference Include="..\TAGov.Services.Core.RevenueObject.Repository\TAGov.Services.Core.RevenueObject.Repository.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,52 @@
+{
+  "TAGov.Common.ResourceLocator.API LOCALDEV migrate and exit": {
+    "commandName": "Project",
+    "commandLineArgs": "--ef-migrate-check",
+    "launchBrowser": true,
+    "launchUrl": "swagger",
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "LOCALDEV"
+    },
+    "applicationUrl": "http://localhost:50001"
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/Common.ResourceLocator",
+      "sslPort": 0
+    },
+    "iisExpress": {
+      "applicationUrl": "http://localhost:50006",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DEV"
+      }
+    },
+    "TAGov.Common.ResourceLocator.API LOCALDEV": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "LOCALDEV"
+      },
+      "applicationUrl": "http://localhost:50001"
+    },
+    "TAGov.Common.ResourceLocator.API DEV": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DEV"
+      },
+      "applicationUrl": "http://localhost:50001"
+    }
+  }
+}

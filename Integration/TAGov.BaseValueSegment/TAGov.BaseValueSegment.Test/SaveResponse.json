@@ -1,0 +1,229 @@
+{
+  "id": 9201,
+  "asOf": "2013-07-19T00:00:08",
+  "revenueObjectId": 101170038,
+  "sequenceNumber": 1,
+  "transactionId": -1001,
+  "dynCalcInstanceId": 0,
+  "assessmentEventTransactionId": 0,
+  "baseValueSegmentTransactions": [
+    {
+      "id": -4,
+      "baseValueSegmentId": 9201,
+      "transactionId": -1001,
+      "effectiveStatus": "A",
+      "baseValueSegmentTransactionTypeId": 2,
+      "dynCalcStepTrackingId": 0,
+      "baseValueSegmentTransactionType": {
+        "name": "User",
+        "description": "User"
+      },
+      "baseValueSegmentOwners": [
+        {
+          "id": -5,
+          "baseValueSegmentTransactionId": 0,
+          "legalPartyRoleId": 1248091,
+          "beneficialInterestPercent": 100.0,
+          "dynCalcStepTrackingId": 0,
+          "grmEventId": 1170839,
+          "grmEventInformation": null,
+          "baseValueSegmentOwnerValueValues": [
+            {
+              "id": -6,
+              "baseValueSegmentOwnerId": -5,
+              "baseValueSegmentValueHeaderId": 14448,
+              "baseValue": 4500000.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ]
+        }
+      ],
+      "baseValueSegmentValueHeaders": [
+        {
+          "id": 14448,
+          "baseValueSegmentTransactionId": 14443,
+          "grmEventId": 25628421,
+          "grmEventInformation": null,
+          "baseYear": 2014,
+          "baseValueSegmentValues": [
+            {
+              "id": 28671,
+              "baseValueSegmentValueHeaderId": 14448,
+              "subComponent": 502452,
+              "valueAmount": 3005000.0,
+              "percentComplete": 100.0,
+              "fullValueAmount": 3005000.0,
+              "dynCalcStepTrackingId": 0
+            },
+            {
+              "id": 28672,
+              "baseValueSegmentValueHeaderId": 14448,
+              "subComponent": 2499976,
+              "valueAmount": 1495000.0,
+              "percentComplete": 100.0,
+              "fullValueAmount": 1495000.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ],
+          "baseValueSegmentOwnerValues": [
+            {
+              "id": 20450,
+              "baseValueSegmentOwnerId": 20440,
+              "baseValueSegmentValueHeaderId": 14448,
+              "baseValue": 4500000.0,
+              "dynCalcStepTrackingId": 0
+            },
+            {
+              "id": -6,
+              "baseValueSegmentOwnerId": -5,
+              "baseValueSegmentValueHeaderId": 14448,
+              "baseValue": 4500000.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14443,
+      "baseValueSegmentId": 9201,
+      "transactionId": -1001,
+      "effectiveStatus": "A",
+      "baseValueSegmentTransactionTypeId": 2,
+      "dynCalcStepTrackingId": 0,
+      "baseValueSegmentTransactionType": {
+        "name": "User",
+        "description": "User"
+      },
+      "baseValueSegmentOwners": [
+        {
+          "id": 20440,
+          "baseValueSegmentTransactionId": 14443,
+          "legalPartyRoleId": 1248091,
+          "beneficialInterestPercent": 100.0,
+          "dynCalcStepTrackingId": 0,
+          "grmEventId": 25627366,
+          "grmEventInformation": null,
+          "baseValueSegmentOwnerValueValues": [
+            {
+              "id": 20450,
+              "baseValueSegmentOwnerId": 20440,
+              "baseValueSegmentValueHeaderId": 14448,
+              "baseValue": 4500000.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ]
+        }
+      ],
+      "baseValueSegmentValueHeaders": [
+        {
+          "id": 14448,
+          "baseValueSegmentTransactionId": 14443,
+          "grmEventId": 25628421,
+          "grmEventInformation": null,
+          "baseYear": 2014,
+          "baseValueSegmentValues": [
+            {
+              "id": 28671,
+              "baseValueSegmentValueHeaderId": 14448,
+              "subComponent": 502452,
+              "valueAmount": 3005000.0,
+              "percentComplete": 100.0,
+              "fullValueAmount": 3005000.0,
+              "dynCalcStepTrackingId": 0
+            },
+            {
+              "id": 28672,
+              "baseValueSegmentValueHeaderId": 14448,
+              "subComponent": 2499976,
+              "valueAmount": 1495000.0,
+              "percentComplete": 100.0,
+              "fullValueAmount": 1495000.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ],
+          "baseValueSegmentOwnerValues": [
+            {
+              "id": 20450,
+              "baseValueSegmentOwnerId": 20440,
+              "baseValueSegmentValueHeaderId": 14448,
+              "baseValue": 4500000.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9201,
+      "baseValueSegmentId": 9201,
+      "transactionId": -1001,
+      "effectiveStatus": "A",
+      "baseValueSegmentTransactionTypeId": 3,
+      "dynCalcStepTrackingId": 0,
+      "baseValueSegmentTransactionType": {
+        "name": "Conversion",
+        "description": "Conversion"
+      },
+      "baseValueSegmentOwners": [
+        {
+          "id": 12869,
+          "baseValueSegmentTransactionId": 9201,
+          "legalPartyRoleId": 1248091,
+          "beneficialInterestPercent": 100.0,
+          "dynCalcStepTrackingId": 0,
+          "grmEventId": 25627366,
+          "grmEventInformation": null,
+          "baseValueSegmentOwnerValueValues": [
+            {
+              "id": 12869,
+              "baseValueSegmentOwnerId": 12869,
+              "baseValueSegmentValueHeaderId": 8740,
+              "baseValue": 4520429.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ]
+        }
+      ],
+      "baseValueSegmentValueHeaders": [
+        {
+          "id": 8740,
+          "baseValueSegmentTransactionId": 9201,
+          "grmEventId": 25627366,
+          "grmEventInformation": null,
+          "baseYear": 2014,
+          "baseValueSegmentValues": [
+            {
+              "id": 21094,
+              "baseValueSegmentValueHeaderId": 8740,
+              "subComponent": 2499976,
+              "valueAmount": 1501787.0,
+              "percentComplete": 100.0,
+              "fullValueAmount": 1501787.0,
+              "dynCalcStepTrackingId": 0
+            },
+            {
+              "id": 26930,
+              "baseValueSegmentValueHeaderId": 8740,
+              "subComponent": 502452,
+              "valueAmount": 3018642.0,
+              "percentComplete": 100.0,
+              "fullValueAmount": 3018642.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ],
+          "baseValueSegmentOwnerValues": [
+            {
+              "id": 12869,
+              "baseValueSegmentOwnerId": 12869,
+              "baseValueSegmentValueHeaderId": 8740,
+              "baseValue": 4520429.0,
+              "dynCalcStepTrackingId": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "baseValueSegmentAssessmentRevisions": []
+}

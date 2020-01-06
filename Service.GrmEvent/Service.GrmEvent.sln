@@ -1,0 +1,176 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{C78A1DE6-8F85-4034-930E-F3589A56E005}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{565F605E-7260-4967-A445-69771E9A0DC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2E703346-4E2B-4775-9437-3536BDDF160E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1369103C-EDE6-4315-9DD2-F39D22CE6B50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{15BD1C93-A601-4BFD-9E02-4A082645C920}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.GrmEvent.API", "TAGov.Services.Core.GrmEvent.API\TAGov.Services.Core.GrmEvent.API.csproj", "{0131379B-608E-4E14-B820-64127BFC640F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.GrmEvent.Operations", "TAGov.Services.Core.GrmEvent.Operations\TAGov.Services.Core.GrmEvent.Operations.csproj", "{37B5B198-08FB-4A6A-862E-C02BB3BC443E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{8404E2FD-4BC1-4905-B0E1-40940F61DD02}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.GrmEvent.Domain", "TAGov.Services.Core.GrmEvent.Domain\TAGov.Services.Core.GrmEvent.Domain.csproj", "{C5D9E321-062E-4226-8EDB-484E4E3DF586}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.GrmEvent.Domain.Models", "TAGov.Services.Core.GrmEvent.Domain.Models\TAGov.Services.Core.GrmEvent.Domain.Models.csproj", "{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository.Tests", "Repository.Tests\Repository.Tests.csproj", "{AA4C3D7A-617B-4E93-BCA3-85888F195530}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Core.GrmEvent.Repository", "TAGov.Services.Core.GrmEvent.Repository\TAGov.Services.Core.GrmEvent.Repository.csproj", "{A8A58790-078E-4186-8D59-4E54BBBE673C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0131379B-608E-4E14-B820-64127BFC640F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Debug|x64.Build.0 = Debug|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Debug|x86.Build.0 = Debug|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Release|x64.ActiveCfg = Release|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Release|x64.Build.0 = Release|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Release|x86.ActiveCfg = Release|Any CPU
+		{0131379B-608E-4E14-B820-64127BFC640F}.Release|x86.Build.0 = Release|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Debug|x64.Build.0 = Debug|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Debug|x86.Build.0 = Debug|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Release|x64.ActiveCfg = Release|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Release|x64.Build.0 = Release|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Release|x86.ActiveCfg = Release|Any CPU
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E}.Release|x86.Build.0 = Release|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Debug|x64.Build.0 = Debug|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Debug|x86.Build.0 = Debug|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Release|x64.ActiveCfg = Release|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Release|x64.Build.0 = Release|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Release|x86.ActiveCfg = Release|Any CPU
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02}.Release|x86.Build.0 = Release|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Debug|x64.Build.0 = Debug|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Debug|x86.Build.0 = Debug|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Release|x64.ActiveCfg = Release|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Release|x64.Build.0 = Release|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Release|x86.ActiveCfg = Release|Any CPU
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586}.Release|x86.Build.0 = Release|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Debug|x64.Build.0 = Debug|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Debug|x86.Build.0 = Debug|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Release|x64.ActiveCfg = Release|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Release|x64.Build.0 = Release|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC}.Release|x86.Build.0 = Release|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Debug|x64.Build.0 = Debug|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Debug|x86.Build.0 = Debug|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Release|x64.ActiveCfg = Release|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Release|x64.Build.0 = Release|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Release|x86.ActiveCfg = Release|Any CPU
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530}.Release|x86.Build.0 = Release|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Debug|x64.Build.0 = Debug|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Debug|x86.Build.0 = Debug|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Release|x64.ActiveCfg = Release|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Release|x64.Build.0 = Release|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8A58790-078E-4186-8D59-4E54BBBE673C}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E703346-4E2B-4775-9437-3536BDDF160E} = {C78A1DE6-8F85-4034-930E-F3589A56E005}
+		{1369103C-EDE6-4315-9DD2-F39D22CE6B50} = {565F605E-7260-4967-A445-69771E9A0DC6}
+		{0131379B-608E-4E14-B820-64127BFC640F} = {15BD1C93-A601-4BFD-9E02-4A082645C920}
+		{37B5B198-08FB-4A6A-862E-C02BB3BC443E} = {15BD1C93-A601-4BFD-9E02-4A082645C920}
+		{8404E2FD-4BC1-4905-B0E1-40940F61DD02} = {1369103C-EDE6-4315-9DD2-F39D22CE6B50}
+		{C5D9E321-062E-4226-8EDB-484E4E3DF586} = {565F605E-7260-4967-A445-69771E9A0DC6}
+		{8172C289-1F9C-4F1E-A2F0-1F82E831A1EC} = {565F605E-7260-4967-A445-69771E9A0DC6}
+		{AA4C3D7A-617B-4E93-BCA3-85888F195530} = {2E703346-4E2B-4775-9437-3536BDDF160E}
+		{A8A58790-078E-4186-8D59-4E54BBBE673C} = {C78A1DE6-8F85-4034-930E-F3589A56E005}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C43D539-86E3-472A-B08E-555A9990B0CA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfstta.int.thomson.com:8080/tfs/aumentum
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TAGov.Services.Core.GrmEvent.API\\TAGov.Services.Core.GrmEvent.API.csproj
+		SccProjectTopLevelParentUniqueName1 = Service.GrmEvent.sln
+		SccProjectName1 = TAGov.Services.Core.GrmEvent.API
+		SccLocalPath1 = TAGov.Services.Core.GrmEvent.API
+		SccProjectUniqueName2 = TAGov.Services.Core.GrmEvent.Operations\\TAGov.Services.Core.GrmEvent.Operations.csproj
+		SccProjectTopLevelParentUniqueName2 = Service.GrmEvent.sln
+		SccProjectName2 = TAGov.Services.Core.GrmEvent.Operations
+		SccLocalPath2 = TAGov.Services.Core.GrmEvent.Operations
+		SccProjectUniqueName3 = Domain.Tests\\Domain.Tests.csproj
+		SccProjectTopLevelParentUniqueName3 = Service.GrmEvent.sln
+		SccProjectName3 = Domain.Tests
+		SccLocalPath3 = Domain.Tests
+		SccProjectUniqueName4 = TAGov.Services.Core.GrmEvent.Domain\\TAGov.Services.Core.GrmEvent.Domain.csproj
+		SccProjectTopLevelParentUniqueName4 = Service.GrmEvent.sln
+		SccProjectName4 = TAGov.Services.Core.GrmEvent.Domain
+		SccLocalPath4 = TAGov.Services.Core.GrmEvent.Domain
+		SccProjectUniqueName5 = TAGov.Services.Core.GrmEvent.Domain.Models\\TAGov.Services.Core.GrmEvent.Domain.Models.csproj
+		SccProjectTopLevelParentUniqueName5 = Service.GrmEvent.sln
+		SccProjectName5 = TAGov.Services.Core.GrmEvent.Domain.Models
+		SccLocalPath5 = TAGov.Services.Core.GrmEvent.Domain.Models
+		SccProjectUniqueName6 = Repository.Tests\\Repository.Tests.csproj
+		SccProjectTopLevelParentUniqueName6 = Service.GrmEvent.sln
+		SccProjectName6 = Repository.Tests
+		SccLocalPath6 = Repository.Tests
+		SccProjectUniqueName7 = TAGov.Services.Core.GrmEvent.Repository\\TAGov.Services.Core.GrmEvent.Repository.csproj
+		SccProjectTopLevelParentUniqueName7 = Service.GrmEvent.sln
+		SccProjectName7 = TAGov.Services.Core.GrmEvent.Repository
+		SccLocalPath7 = TAGov.Services.Core.GrmEvent.Repository
+	EndGlobalSection
+EndGlobal

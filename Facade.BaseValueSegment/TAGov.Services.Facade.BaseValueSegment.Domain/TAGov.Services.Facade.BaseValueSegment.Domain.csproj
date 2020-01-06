@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Implementation\CaliforniaConsumerPriceIndex.cs" />
+    <Compile Remove="Implementation\CaliforniaConsumerPriceIndexRepository.cs" />
+    <Compile Remove="Interfaces\ICaliforniaConsumerPriceIndex.cs" />
+    <Compile Remove="Interfaces\ICaliforniaConsumerPriceIndexRepository.cs" />
+    <Compile Remove="Models\V1\Read\BaseValueSegmentDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="TAGov.Common.Caching" Version="2019.0.4" />
+    <PackageReference Include="TAGov.Common.ExceptionHandler" Version="2019.0.4" />
+    <PackageReference Include="TAGov.Common.Http" Version="2019.0.4" />
+    <PackageReference Include="TAGov.Services.Core.AssessmentEvent.Domain.Models" Version="2018.305.1" />
+    <PackageReference Include="TAGov.Services.Core.BaseValueSegment.Domain.Models" Version="2018.321.1" />
+    <PackageReference Include="TAGov.Services.Core.GrmEvent.Domain.Models" Version="2018.307.1" />
+    <PackageReference Include="TAGov.Services.Core.LegalParty.Domain.Models" Version="2018.327.1" />
+    <PackageReference Include="TAGov.Services.Core.RevenueObject.Domain.Models" Version="2018.328.1" />
+  </ItemGroup>
+</Project>

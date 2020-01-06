@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TAGov.Common.Security.API</name>
+    </assembly>
+    <members>
+        <member name="T:TAGov.Common.Security.API.Controllers.V1.ClientController">
+            <summary>
+            Client API.
+            </summary>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Controllers.V1.ClientController.#ctor(TAGov.Common.Security.Domain.Interfaces.IClientDomain)">
+            <summary>
+            Constructor to Client API.
+            </summary>
+            <param name="clientDomain"></param>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Controllers.V1.ClientController.Post(TAGov.Common.Security.Domain.Models.V1.ClientDto)">
+            <summary>
+            Create a new Client.
+            </summary>
+            <param name="clientDto">ClientDto in body.</param>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Controllers.V1.ClientController.Put(System.String,TAGov.Common.Security.Domain.Models.V1.ClientDto)">
+            <summary>
+            Updates an existing ClientDto.
+            </summary>
+            
+            <param name="id">Username of client.</param>
+            <param name="clientDto">ClientDto in body.</param>
+        </member>
+        <member name="T:TAGov.Common.Security.API.Controllers.V1.ClientInfoController">
+            <summary>
+            ClientInfo API.
+            </summary>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Controllers.V1.ClientInfoController.#ctor(TAGov.Common.Security.Domain.Interfaces.IClientDomain)">
+            <summary>
+            Constructor to ClientInfo API.
+            </summary>
+            <param name="clientDomain"></param>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Controllers.V1.ClientInfoController.Get">
+            <summary>
+            Gets a list of avaliable ClientInfoDtos.
+            </summary>
+            <returns>ClientDto list.</returns>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Controllers.V1.ClientInfoController.Get(System.String)">
+            <summary>
+            Gets a single ClientInfoDto by username.
+            </summary>
+            <param name="username">Username of client.</param>
+            <returns>ClientDto.</returns>
+        </member>
+        <member name="T:TAGov.Common.Security.API.Program">
+            <summary>
+            Main Program
+            </summary>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args">arguments. Currently not used</param>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Program.BuildWebHost(System.String[])">
+            <summary>
+            Boiler plate .NET Core 2.0 startup code.
+            </summary>
+            <param name="args">args from startup</param>
+            <returns></returns>
+        </member>
+        <member name="T:TAGov.Common.Security.API.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup class constructor.
+            </summary>
+            <param name="configuration">IConfiguration.</param>
+        </member>
+        <member name="P:TAGov.Common.Security.API.Startup.Configuration">
+            <summary>
+            Gets the IConfigurationRoot.
+            </summary>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">IServiceCollection.</param>
+        </member>
+        <member name="M:TAGov.Common.Security.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">IApplicationBuilder.</param>
+            <param name="env">Environment.</param>
+            <param name="loggerFactory">ILoggerFactory.</param>
+        </member>
+    </members>
+</doc>

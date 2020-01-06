@@ -1,0 +1,22 @@
+[
+  {
+    "key": "BaseValueSegmentFeature",
+    "partition": "%partition%",
+    "value": "true"
+  },
+  {
+    "key": "LegalPartySearchFeature",
+    "partition": "%partition%",
+    "value": "false"
+  },
+  {
+    "key": "RevenueObjectSearchFeature",
+    "partition": "%partition%",
+    "value": "false"
+  },
+  {
+    "key": "MyWorklistSearchFeature",
+    "partition": "%partition%",
+    "value": "false"
+  }
+]

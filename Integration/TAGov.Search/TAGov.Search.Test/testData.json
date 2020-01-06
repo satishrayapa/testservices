@@ -1,0 +1,24 @@
+﻿[
+  {
+	"id": 0,
+	"legalPartyId": 0,
+	"legalPartyRoleId": 0,
+	"legalPartyRole": "string",
+	"displayName": "foobar",
+	"pin": "string",
+	"address": "123 main",
+	"ain": "string",
+	"searchDoc": "somedoc",
+	"searchPin": "string",
+	"effectiveDate": "2017-07-05T19:31:09.496Z",
+	"isActive": true,
+	"revenueObjectId": 0,
+	"revenueObjectEffectiveDate": "2017-07-05T19:31:09.496Z",
+	"addressId": 0,
+	"addressEffectiveDate": "2017-07-05T19:31:09.496Z",
+	"addressRoleId": 0,
+	"addressRoleEffectiveDate": "2017-07-05T19:31:09.496Z",
+	"addressType": "string",
+	"streetType":  "RD" 
+  }
+]

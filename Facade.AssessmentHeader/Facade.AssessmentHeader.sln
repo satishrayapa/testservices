@@ -1,0 +1,114 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{EE2CCA72-8C8A-477D-8D8F-C5EAA0EFAF06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C0C51F2D-E829-461B-B0A5-E24F314B3B1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AA5F8B44-D393-4184-A3D4-7ABEE1BF950E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Facade.AssessmentHeader.API", "TAGov.Services.Facade.AssessmentHeader.API\TAGov.Services.Facade.AssessmentHeader.API.csproj", "{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Facade.AssessmentHeader.Operations", "TAGov.Services.Facade.AssessmentHeader.Operations\TAGov.Services.Facade.AssessmentHeader.Operations.csproj", "{4DFC7519-E687-4F46-B709-644DFE558391}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{62F992A1-6D23-4B0C-8CFF-A48618E75082}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAGov.Services.Facade.AssessmentHeader.Domain", "TAGov.Services.Facade.AssessmentHeader.Domain\TAGov.Services.Facade.AssessmentHeader.Domain.csproj", "{A990C05E-8FCB-4597-8381-D69FC38D1A66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Debug|x64.Build.0 = Debug|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Debug|x86.Build.0 = Debug|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Release|x64.ActiveCfg = Release|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Release|x64.Build.0 = Release|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED}.Release|x86.Build.0 = Release|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Debug|x64.Build.0 = Debug|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Debug|x86.Build.0 = Debug|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Release|x64.ActiveCfg = Release|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Release|x64.Build.0 = Release|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Release|x86.ActiveCfg = Release|Any CPU
+		{4DFC7519-E687-4F46-B709-644DFE558391}.Release|x86.Build.0 = Release|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Debug|x64.Build.0 = Debug|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Debug|x86.Build.0 = Debug|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Release|x64.ActiveCfg = Release|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Release|x64.Build.0 = Release|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Release|x86.ActiveCfg = Release|Any CPU
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082}.Release|x86.Build.0 = Release|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Debug|x64.Build.0 = Debug|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Debug|x86.Build.0 = Debug|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Release|x64.ActiveCfg = Release|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Release|x64.Build.0 = Release|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Release|x86.ActiveCfg = Release|Any CPU
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA5F8B44-D393-4184-A3D4-7ABEE1BF950E} = {C0C51F2D-E829-461B-B0A5-E24F314B3B1B}
+		{B160F989-8A5E-4F4D-8BB7-67407EFB70ED} = {EE2CCA72-8C8A-477D-8D8F-C5EAA0EFAF06}
+		{4DFC7519-E687-4F46-B709-644DFE558391} = {EE2CCA72-8C8A-477D-8D8F-C5EAA0EFAF06}
+		{62F992A1-6D23-4B0C-8CFF-A48618E75082} = {AA5F8B44-D393-4184-A3D4-7ABEE1BF950E}
+		{A990C05E-8FCB-4597-8381-D69FC38D1A66} = {C0C51F2D-E829-461B-B0A5-E24F314B3B1B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A7E6110-BC39-4439-B25B-8B8FC8AC5E0C}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfstta.int.thomson.com:8080/tfs/aumentum
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TAGov.Services.Facade.AssessmentHeader.API\\TAGov.Services.Facade.AssessmentHeader.API.csproj
+		SccProjectTopLevelParentUniqueName1 = Facade.AssessmentHeader.sln
+		SccProjectName1 = TAGov.Services.Facade.AssessmentHeader.API
+		SccLocalPath1 = TAGov.Services.Facade.AssessmentHeader.API
+		SccProjectUniqueName2 = TAGov.Services.Facade.AssessmentHeader.Operations\\TAGov.Services.Facade.AssessmentHeader.Operations.csproj
+		SccProjectTopLevelParentUniqueName2 = Facade.AssessmentHeader.sln
+		SccProjectName2 = TAGov.Services.Facade.AssessmentHeader.Operations
+		SccLocalPath2 = TAGov.Services.Facade.AssessmentHeader.Operations
+		SccProjectUniqueName3 = Domain.Tests\\Domain.Tests.csproj
+		SccProjectTopLevelParentUniqueName3 = Facade.AssessmentHeader.sln
+		SccProjectName3 = Domain.Tests
+		SccLocalPath3 = Domain.Tests
+		SccProjectUniqueName4 = TAGov.Services.Facade.AssessmentHeader.Domain\\TAGov.Services.Facade.AssessmentHeader.Domain.csproj
+		SccProjectTopLevelParentUniqueName4 = Facade.AssessmentHeader.sln
+		SccProjectName4 = TAGov.Services.Facade.AssessmentHeader.Domain
+		SccLocalPath4 = TAGov.Services.Facade.AssessmentHeader.Domain
+	EndGlobalSection
+EndGlobal

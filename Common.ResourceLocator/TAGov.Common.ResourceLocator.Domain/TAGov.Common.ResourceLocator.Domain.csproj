@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="TAGov.Common.ExceptionHandler" Version="2019.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TAGov.Common.ResourceLocator.Repository\TAGov.Common.ResourceLocator.Repository.csproj" />
+    <ProjectReference Include="..\TAGov.Common.ResourceLocator.Domain.Models\TAGov.Common.ResourceLocator.Domain.Models.csproj" />
+  </ItemGroup>
+</Project>
