@@ -13,292 +13,292 @@ jobs:
       filePath: 'deployment\ConfigureStackName.ps1'
       errorActionPreference: 'stop'
   
-  - task: PowerShell@2
-    name: PrepCicd
-    displayName: 'Configure variables to be used throughout the build pipeline (this yaml script).'
-    inputs:
-      targetType: 'filePath'
-      arguments: '-PipelineStackName $(PipelineStackName) -VariableArray ServiceClientId,ServiceClientPassword,DeployResourceGroupName,DeployStackName,DeployLocation,SiteNames,AppSku,AllowedIPAddresses,BuildOnly,AppDataSource,AppDatabase,AppUserId,AppUserPassword,AppConnectionTimeoutInSeconds,StorageName,ContainerName,DatabaseName,DatabaseServer'
-      filePath: 'deployment\Prepcicd.ps1'
-      errorActionPreference: 'stop'
-    env:
-      Global_AppUserPassword: $(Global.AppUserPassword)
-      ${{ format('{0}_AppUserPassword', variables['PipelineStackName']) }}: ${{ format('{0}_AppUserPassword', variables['PipelineStackName']) }}
+#   - task: PowerShell@2
+#     name: PrepCicd
+#     displayName: 'Configure variables to be used throughout the build pipeline (this yaml script).'
+#     inputs:
+#       targetType: 'filePath'
+#       arguments: '-PipelineStackName $(PipelineStackName) -VariableArray ServiceClientId,ServiceClientPassword,DeployResourceGroupName,DeployStackName,DeployLocation,SiteNames,AppSku,AllowedIPAddresses,BuildOnly,AppDataSource,AppDatabase,AppUserId,AppUserPassword,AppConnectionTimeoutInSeconds,StorageName,ContainerName,DatabaseName,DatabaseServer'
+#       filePath: 'deployment\Prepcicd.ps1'
+#       errorActionPreference: 'stop'
+#     env:
+#       Global_AppUserPassword: $(Global.AppUserPassword)
+#       ${{ format('{0}_AppUserPassword', variables['PipelineStackName']) }}: ${{ format('{0}_AppUserPassword', variables['PipelineStackName']) }}
 
-  - task: PowerShell@2
-    displayName: 'Pack Common Nuget Dependencies'
-    inputs:
-      targetType: 'filePath'
-      arguments: -Version $(Global.Version) -LocalNugetDirectory $(Build.ArtifactStagingDirectory)\nuget
-      filePath: 'PackCommon.ps1'
-      errorActionPreference: 'stop'
+#   - task: PowerShell@2
+#     displayName: 'Pack Common Nuget Dependencies'
+#     inputs:
+#       targetType: 'filePath'
+#       arguments: -Version $(Global.Version) -LocalNugetDirectory $(Build.ArtifactStagingDirectory)\nuget
+#       filePath: 'PackCommon.ps1'
+#       errorActionPreference: 'stop'
 
-  - task: AzureFileCopy@3
-    displayName: 'Copy nuget files to Azure Blob'
-    condition: and(succeeded(), ne(variables['BuildOnly'], 'false'))
-    inputs:
-      sourcePath: $(Build.ArtifactStagingDirectory)\nuget
-      azureSubscription: '$(Global.AzureSubscription)'
-      blobPrefix: $(Build.BuildNumber)\nuget
-      destination: azureBlob
-      storage: '$(PrepCicd.StorageName)' 
-      containerName: '$(PrepCicd.ContainerName)'
+#   - task: AzureFileCopy@3
+#     displayName: 'Copy nuget files to Azure Blob'
+#     condition: and(succeeded(), ne(variables['BuildOnly'], 'false'))
+#     inputs:
+#       sourcePath: $(Build.ArtifactStagingDirectory)\nuget
+#       azureSubscription: '$(Global.AzureSubscription)'
+#       blobPrefix: $(Build.BuildNumber)\nuget
+#       destination: azureBlob
+#       storage: '$(PrepCicd.StorageName)' 
+#       containerName: '$(PrepCicd.ContainerName)'
 
-  - task: AzurePowerShell@4
-    name: GetApiBearerToken
-    displayName: 'Get API Bearer Token for downstream work'
-    condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
-    inputs:
-      scriptType: 'FilePath'
-      azureSubscription: '$(Global.AzureSubscription)'
-      scriptArguments: >-
-        -KeyVaultClientSecretName $(Global.KeyVaultClientSecretName)
-        -KeyVaultName $(Global.KeyVaultName)
-        -AppResourceId $(Global.AppResourceId)
-        -ClientId $(Global.AppClientId)
-        -TenantId $(Global.TenantId)
-      scriptPath: 'GetApiBearerToken.ps1'
-      errorActionPreference: 'stop'
-      azurePowerShellVersion: 'latestVersion'     
+#   - task: AzurePowerShell@4
+#     name: GetApiBearerToken
+#     displayName: 'Get API Bearer Token for downstream work'
+#     condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
+#     inputs:
+#       scriptType: 'FilePath'
+#       azureSubscription: '$(Global.AzureSubscription)'
+#       scriptArguments: >-
+#         -KeyVaultClientSecretName $(Global.KeyVaultClientSecretName)
+#         -KeyVaultName $(Global.KeyVaultName)
+#         -AppResourceId $(Global.AppResourceId)
+#         -ClientId $(Global.AppClientId)
+#         -TenantId $(Global.TenantId)
+#       scriptPath: 'GetApiBearerToken.ps1'
+#       errorActionPreference: 'stop'
+#       azurePowerShellVersion: 'latestVersion'     
 
-- job: DeployEnvironmentJob
-  dependsOn: PrepareEnvironmentJob
-  pool:
-    vmImage: 'windows-2019'
-  variables:
-    DeployResourceGroupName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployResourceGroupName'] ]
-    DeployLocation: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployLocation'] ]
-    DeployStackName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployStackName'] ]
-    AppSku: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppSku'] ]
-    SiteNames: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.SiteNames'] ]
-    AllowedIPAddresses: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AllowedIPAddresses'] ]
-    BuildOnly: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.BuildOnly'] ]
-    AppDataSource: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppDataSource'] ]
-    AppDatabase: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppDatabase'] ]
-    AppUserId: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppUserId'] ]
-    AppUserPassword: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppUserPassword'] ]
-    AppConnectionTimeoutInSeconds: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppConnectionTimeoutInSeconds'] ]
-    StorageName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.StorageName'] ]
-    ContainerName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ContainerName'] ]
-    DatabaseName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DatabaseName'] ]
-    DatabaseServer: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DatabaseServer'] ]
-    ApiBearerToken: $[ dependencies.PrepareEnvironmentJob.outputs['GetApiBearerToken.ApiBearerToken'] ]
-  steps:
-  - task: AzureResourceGroupDeployment@2
-    displayName: 'Run ARM Deployment'
-    condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
-    inputs:
-      azureSubscription: '$(Global.AzureSubscription)'
-      resourceGroupName: $(DeployResourceGroupName)
-      location: '$(DeployLocation)'
-      templateLocation: 'Linked artifact'
-      csmFile: deployment\azuredeploy.json
-      overrideParameters: >-
-          -resourcesPrefix $(DeployStackName)
-          -location $(DeployLocation)
-          -appSku $(AppSku)
-          -siteNames $(SiteNames)
-          -allowedIpAddresses $(AllowedIPAddresses)
-          -tagEnvironmentType $(Global.TagEnvironmentType)
-          -tagFinancialIdentifier $(Global.TagFinancialIdentifier)
-          -tagApplicationAssetInsightId $(Global.TagApplicationAssetInsightId)
-          -tagResourceOwner $(Global.TagResourceOwner)
+# - job: DeployEnvironmentJob
+#   dependsOn: PrepareEnvironmentJob
+#   pool:
+#     vmImage: 'windows-2019'
+#   variables:
+#     DeployResourceGroupName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployResourceGroupName'] ]
+#     DeployLocation: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployLocation'] ]
+#     DeployStackName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployStackName'] ]
+#     AppSku: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppSku'] ]
+#     SiteNames: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.SiteNames'] ]
+#     AllowedIPAddresses: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AllowedIPAddresses'] ]
+#     BuildOnly: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.BuildOnly'] ]
+#     AppDataSource: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppDataSource'] ]
+#     AppDatabase: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppDatabase'] ]
+#     AppUserId: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppUserId'] ]
+#     AppUserPassword: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppUserPassword'] ]
+#     AppConnectionTimeoutInSeconds: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.AppConnectionTimeoutInSeconds'] ]
+#     StorageName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.StorageName'] ]
+#     ContainerName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ContainerName'] ]
+#     DatabaseName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DatabaseName'] ]
+#     DatabaseServer: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DatabaseServer'] ]
+#     ApiBearerToken: $[ dependencies.PrepareEnvironmentJob.outputs['GetApiBearerToken.ApiBearerToken'] ]
+#   steps:
+#   - task: AzureResourceGroupDeployment@2
+#     displayName: 'Run ARM Deployment'
+#     condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
+#     inputs:
+#       azureSubscription: '$(Global.AzureSubscription)'
+#       resourceGroupName: $(DeployResourceGroupName)
+#       location: '$(DeployLocation)'
+#       templateLocation: 'Linked artifact'
+#       csmFile: deployment\azuredeploy.json
+#       overrideParameters: >-
+#           -resourcesPrefix $(DeployStackName)
+#           -location $(DeployLocation)
+#           -appSku $(AppSku)
+#           -siteNames $(SiteNames)
+#           -allowedIpAddresses $(AllowedIPAddresses)
+#           -tagEnvironmentType $(Global.TagEnvironmentType)
+#           -tagFinancialIdentifier $(Global.TagFinancialIdentifier)
+#           -tagApplicationAssetInsightId $(Global.TagApplicationAssetInsightId)
+#           -tagResourceOwner $(Global.TagResourceOwner)
 
-  - task: AzurePowerShell@4
-    displayName: "Create Subnets"
-    condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
-    inputs:
-      scriptType: "FilePath"
-      azureSubscription: "$(Global.AzureSubscription)"
-      scriptArguments: >-
-        -StackName $(DeployStackName)
-        -SiteNames $(SiteNames)
-        -SubscriptionKey $(Global.SubscriptionKey)
-        -SubscriptionId $(Global.SubscriptionId)
-        -TagApplicationAssetInsightId $(Global.TagApplicationAssetInsightId)
-        -TagEnvironmentType "NON-PROD"
-        -TagFinancialIdentifier $(Global.TagFinancialIdentifier)
-        -ResourceGroup $(DeployResourceGroupName)
-        -Region eastus2
-        -ApiBearerToken $(ApiBearerToken)
-      scriptPath: "CreateSubnets.ps1"
-      errorActionPreference: "stop"
-      azurePowerShellVersion: "latestVersion"
+#   - task: AzurePowerShell@4
+#     displayName: "Create Subnets"
+#     condition: and(succeeded(), ne(variables['BuildOnly'], 'true'))
+#     inputs:
+#       scriptType: "FilePath"
+#       azureSubscription: "$(Global.AzureSubscription)"
+#       scriptArguments: >-
+#         -StackName $(DeployStackName)
+#         -SiteNames $(SiteNames)
+#         -SubscriptionKey $(Global.SubscriptionKey)
+#         -SubscriptionId $(Global.SubscriptionId)
+#         -TagApplicationAssetInsightId $(Global.TagApplicationAssetInsightId)
+#         -TagEnvironmentType "NON-PROD"
+#         -TagFinancialIdentifier $(Global.TagFinancialIdentifier)
+#         -ResourceGroup $(DeployResourceGroupName)
+#         -Region eastus2
+#         -ApiBearerToken $(ApiBearerToken)
+#       scriptPath: "CreateSubnets.ps1"
+#       errorActionPreference: "stop"
+#       azurePowerShellVersion: "latestVersion"
 
-# We cannot bind all into a single template because the pipeline would complain that we may be creating a circular dependency graph.
+# # We cannot bind all into a single template because the pipeline would complain that we may be creating a circular dependency graph.
 
-# This is considered the first level services which other services rely on.
-- template: builddeploy-app.yml
-  parameters:
-    params:
-      - common-resourcelocator:
-        name: common-resourcelocator                                  # This is the name of the API hosted on Azure App Service. Note that this is also stored in Variable group. If we add/remove, we need to update there as well.
-        key: commonresourcelocator                                    # This is the key used for variables to be hosted.
-        path: Common.ResourceLocator\TAGov.Common.ResourceLocator     # This is the prefix path to where the project is.        
-        securityApplicationName: api.resourcelocatorservice           # This is the application used for security context.
-        signFile: 'none'                                              # This is the key to the setting that stores the content of the signing file.
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob
-      - common-security:
-        name: common-security
-        key: commonsecurity
-        path: Common.Security\TAGov.Common.Security        
-        securityApplicationName: api.securityservice
-        signFile: 'Global.CommonSecuritySignFile'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob
-      - service-legalparty:
-        name: service-legalparty
-        key: servicelegalparty
-        path: Service.LegalParty\TAGov.Services.Core.LegalParty        
-        securityApplicationName: api.LegalPartyService
-        signFile: 'none'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob
-      - service-revenueobject:
-        name: service-revenueobject
-        key: servicerevenueobject
-        path: Service.RevenueObject\TAGov.Services.Core.RevenueObject        
-        securityApplicationName: api.RevenueObjectService
-        signFile: 'none'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob
-      - service-grmevent:
-        name: service-grmevent
-        key: servicegrmevent
-        path: Service.GrmEvent\TAGov.Services.Core.GrmEvent        
-        securityApplicationName: api.GrmEventService
-        signFile: 'none'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob
-      - service-assessmentevent:
-        name: service-assessmentevent
-        key: serviceassessmentevent
-        path: Service.AssessmentEvent\TAGov.Services.Core.AssessmentEvent        
-        securityApplicationName: api.AssessmentEventService
-        signFile: 'none'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob
+# # This is considered the first level services which other services rely on.
+# - template: builddeploy-app.yml
+#   parameters:
+#     params:
+#       - common-resourcelocator:
+#         name: common-resourcelocator                                  # This is the name of the API hosted on Azure App Service. Note that this is also stored in Variable group. If we add/remove, we need to update there as well.
+#         key: commonresourcelocator                                    # This is the key used for variables to be hosted.
+#         path: Common.ResourceLocator\TAGov.Common.ResourceLocator     # This is the prefix path to where the project is.        
+#         securityApplicationName: api.resourcelocatorservice           # This is the application used for security context.
+#         signFile: 'none'                                              # This is the key to the setting that stores the content of the signing file.
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob
+#       - common-security:
+#         name: common-security
+#         key: commonsecurity
+#         path: Common.Security\TAGov.Common.Security        
+#         securityApplicationName: api.securityservice
+#         signFile: 'Global.CommonSecuritySignFile'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob
+#       - service-legalparty:
+#         name: service-legalparty
+#         key: servicelegalparty
+#         path: Service.LegalParty\TAGov.Services.Core.LegalParty        
+#         securityApplicationName: api.LegalPartyService
+#         signFile: 'none'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob
+#       - service-revenueobject:
+#         name: service-revenueobject
+#         key: servicerevenueobject
+#         path: Service.RevenueObject\TAGov.Services.Core.RevenueObject        
+#         securityApplicationName: api.RevenueObjectService
+#         signFile: 'none'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob
+#       - service-grmevent:
+#         name: service-grmevent
+#         key: servicegrmevent
+#         path: Service.GrmEvent\TAGov.Services.Core.GrmEvent        
+#         securityApplicationName: api.GrmEventService
+#         signFile: 'none'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob
+#       - service-assessmentevent:
+#         name: service-assessmentevent
+#         key: serviceassessmentevent
+#         path: Service.AssessmentEvent\TAGov.Services.Core.AssessmentEvent        
+#         securityApplicationName: api.AssessmentEventService
+#         signFile: 'none'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob
        
 
-# This is considered the second level services which other third level (or higher) services rely on.
-- template: builddeploy-app.yml
-  parameters:
-    params:
-      - service-basevaluesegment:
-        name: service-basevaluesegment
-        key: servicebasevaluesegment
-        path: Service.BaseValueSegment\TAGov.Services.Core.BaseValueSegment        
-        securityApplicationName: api.BaseValueSegmentService
-        signFile: 'none'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob    
-          - RunservicegrmeventJob  
-          - RunserviceassessmenteventJob 
+# # This is considered the second level services which other third level (or higher) services rely on.
+# - template: builddeploy-app.yml
+#   parameters:
+#     params:
+#       - service-basevaluesegment:
+#         name: service-basevaluesegment
+#         key: servicebasevaluesegment
+#         path: Service.BaseValueSegment\TAGov.Services.Core.BaseValueSegment        
+#         securityApplicationName: api.BaseValueSegmentService
+#         signFile: 'none'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob    
+#           - RunservicegrmeventJob  
+#           - RunserviceassessmenteventJob 
 
-# This is considered the third level services. At this point, this are the highest level services.
-- template: builddeploy-app.yml
-  parameters:
-    params:
-      - facade-assessmentevent:
-        name: facade-assessmentevent
-        key: facadeassessmentevent
-        path: Facade.AssessmentHeader\TAGov.Services.Facade.AssessmentHeader        
-        securityApplicationName: none
-        signFile: 'none'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob  
-          - RunserviceassessmenteventJob
-          - RunservicebasevaluesegmentJob
-          - RunservicelegalpartyJob
-          - RunservicerevenueobjectJob
-      - facade-basevaluesegment:
-        name: facade-basevaluesegment
-        key: facadebasevaluesegment
-        path: Facade.BaseValueSegment\TAGov.Services.Facade.BaseValueSegment       
-        securityApplicationName: none
-        signFile: 'none'
-        dependsOn:
-          - PrepareEnvironmentJob
-          - DeployEnvironmentJob  
-          - RunservicegrmeventJob
-          - RunserviceassessmenteventJob
-          - RunservicebasevaluesegmentJob
-          - RunservicelegalpartyJob
-          - RunservicerevenueobjectJob
+# # This is considered the third level services. At this point, this are the highest level services.
+# - template: builddeploy-app.yml
+#   parameters:
+#     params:
+#       - facade-assessmentevent:
+#         name: facade-assessmentevent
+#         key: facadeassessmentevent
+#         path: Facade.AssessmentHeader\TAGov.Services.Facade.AssessmentHeader        
+#         securityApplicationName: none
+#         signFile: 'none'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob  
+#           - RunserviceassessmenteventJob
+#           - RunservicebasevaluesegmentJob
+#           - RunservicelegalpartyJob
+#           - RunservicerevenueobjectJob
+#       - facade-basevaluesegment:
+#         name: facade-basevaluesegment
+#         key: facadebasevaluesegment
+#         path: Facade.BaseValueSegment\TAGov.Services.Facade.BaseValueSegment       
+#         securityApplicationName: none
+#         signFile: 'none'
+#         dependsOn:
+#           - PrepareEnvironmentJob
+#           - DeployEnvironmentJob  
+#           - RunservicegrmeventJob
+#           - RunserviceassessmenteventJob
+#           - RunservicebasevaluesegmentJob
+#           - RunservicelegalpartyJob
+#           - RunservicerevenueobjectJob
 
-- job: DeployServicesJob
-  pool:
-    vmImage: 'windows-2019'
-  dependsOn:
-    - PrepareEnvironmentJob
-    - RuncommonresourcelocatorJob
-    - RuncommonsecurityJob
-    - RunservicelegalpartyJob
-    - RunservicerevenueobjectJob
-    - RunservicegrmeventJob
-    - RunserviceassessmenteventJob
-    - RunservicebasevaluesegmentJob
-    - RunfacadeassessmenteventJob
-    - RunfacadebasevaluesegmentJob
-  variables:
-    StorageName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.StorageName'] ]
-    ContainerName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ContainerName'] ]
-    DeployStackName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployStackName'] ]
-    ServiceClientId: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ServiceClientId'] ]
-    ServiceClientPassword: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ServiceClientPassword'] ]
-  steps:
-  - task: AzurePowerShell@4
-    displayName: 'Download zipped services'
-    inputs:
-      scriptType: 'FilePath'
-      azureSubscription: '$(Global.AzureSubscription)'
-      scriptArguments: >-
-        -DestinationDirectory $(Build.ArtifactStagingDirectory)\out
-        -ContainerName $(ContainerName)
-        -StorageName $(StorageName)
-        -BlobPrefix $(Build.BuildNumber)/services
-        -ResourceGroup $(Global.SharedStorageResourceGroup)
-      scriptPath: 'DownloadBlobs.ps1'
-      errorActionPreference: 'stop'
-      azurePowerShellVersion: 'latestVersion'
+# - job: DeployServicesJob
+#   pool:
+#     vmImage: 'windows-2019'
+#   dependsOn:
+#     - PrepareEnvironmentJob
+#     - RuncommonresourcelocatorJob
+#     - RuncommonsecurityJob
+#     - RunservicelegalpartyJob
+#     - RunservicerevenueobjectJob
+#     - RunservicegrmeventJob
+#     - RunserviceassessmenteventJob
+#     - RunservicebasevaluesegmentJob
+#     - RunfacadeassessmenteventJob
+#     - RunfacadebasevaluesegmentJob
+#   variables:
+#     StorageName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.StorageName'] ]
+#     ContainerName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ContainerName'] ]
+#     DeployStackName: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.DeployStackName'] ]
+#     ServiceClientId: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ServiceClientId'] ]
+#     ServiceClientPassword: $[ dependencies.PrepareEnvironmentJob.outputs['PrepCicd.ServiceClientPassword'] ]
+#   steps:
+#   - task: AzurePowerShell@4
+#     displayName: 'Download zipped services'
+#     inputs:
+#       scriptType: 'FilePath'
+#       azureSubscription: '$(Global.AzureSubscription)'
+#       scriptArguments: >-
+#         -DestinationDirectory $(Build.ArtifactStagingDirectory)\out
+#         -ContainerName $(ContainerName)
+#         -StorageName $(StorageName)
+#         -BlobPrefix $(Build.BuildNumber)/services
+#         -ResourceGroup $(Global.SharedStorageResourceGroup)
+#       scriptPath: 'DownloadBlobs.ps1'
+#       errorActionPreference: 'stop'
+#       azurePowerShellVersion: 'latestVersion'
 
-  - task: AzurePowerShell@4
-    displayName: 'Download Aumentum Services zip files and package into one zip file.'
-    inputs:
-      scriptType: 'FilePath'
-      azureSubscription: '$(Global.AzureSubscription)'
-      scriptArguments: >-
-        -SourceDirectory $(Build.ArtifactStagingDirectory)\out
-        -DestinationDirectory $(Build.ArtifactStagingDirectory)\services
-        -ArchiveFile '$(Build.ArtifactStagingDirectory)\AumentumServices$(Build.BuildNumber).zip'
-      scriptPath: 'CreateAumentumDeployment.ps1'
-      errorActionPreference: 'stop'
-      azurePowerShellVersion: 'latestVersion'
+#   - task: AzurePowerShell@4
+#     displayName: 'Download Aumentum Services zip files and package into one zip file.'
+#     inputs:
+#       scriptType: 'FilePath'
+#       azureSubscription: '$(Global.AzureSubscription)'
+#       scriptArguments: >-
+#         -SourceDirectory $(Build.ArtifactStagingDirectory)\out
+#         -DestinationDirectory $(Build.ArtifactStagingDirectory)\services
+#         -ArchiveFile '$(Build.ArtifactStagingDirectory)\AumentumServices$(Build.BuildNumber).zip'
+#       scriptPath: 'CreateAumentumDeployment.ps1'
+#       errorActionPreference: 'stop'
+#       azurePowerShellVersion: 'latestVersion'
 
-  - task: AzureFileCopy@3
-    displayName: 'Copy zip file to Azure Blob'
-    condition: and(succeeded(), ne(variables['BuildOnly'], 'false'))
-    inputs:
-      sourcePath: '$(Build.ArtifactStagingDirectory)\AumentumServices$(Build.BuildNumber).zip'
-      azureSubscription: '$(Global.AzureSubscription)'
-      destination: azureBlob
-      storage: '$(StorageName)'
-      blobPrefix: builds
-      containerName: '$(ContainerName)'
+#   - task: AzureFileCopy@3
+#     displayName: 'Copy zip file to Azure Blob'
+#     condition: and(succeeded(), ne(variables['BuildOnly'], 'false'))
+#     inputs:
+#       sourcePath: '$(Build.ArtifactStagingDirectory)\AumentumServices$(Build.BuildNumber).zip'
+#       azureSubscription: '$(Global.AzureSubscription)'
+#       destination: azureBlob
+#       storage: '$(StorageName)'
+#       blobPrefix: builds
+#       containerName: '$(ContainerName)'
 
-  - task: PowerShell@2
-    displayName: 'Update Resources'
-    inputs:
-      targetType: 'filePath'
-      arguments: -ServiceClientId $(ServiceClientId) -ServiceClientPassword $(ServiceClientPassword) -ServicesDeployStackName $(DeployStackName)
-      filePath: 'deployment/UpdateResources.ps1'
-      errorActionPreference: 'stop'
+#   - task: PowerShell@2
+#     displayName: 'Update Resources'
+#     inputs:
+#       targetType: 'filePath'
+#       arguments: -ServiceClientId $(ServiceClientId) -ServiceClientPassword $(ServiceClientPassword) -ServicesDeployStackName $(DeployStackName)
+#       filePath: 'deployment/UpdateResources.ps1'
+#       errorActionPreference: 'stop'
