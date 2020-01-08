@@ -13,25 +13,24 @@ jobs:
       filePath: 'deployment\ConfigureStackName.ps1'
       errorActionPreference: 'stop'
   
-#   - task: PowerShell@2
-#     name: PrepCicd
-#     displayName: 'Configure variables to be used throughout the build pipeline (this yaml script).'
-#     inputs:
-#       targetType: 'filePath'
-#       arguments: '-PipelineStackName $(PipelineStackName) -VariableArray ServiceClientId,ServiceClientPassword,DeployResourceGroupName,DeployStackName,DeployLocation,SiteNames,AppSku,AllowedIPAddresses,BuildOnly,AppDataSource,AppDatabase,AppUserId,AppUserPassword,AppConnectionTimeoutInSeconds,StorageName,ContainerName,DatabaseName,DatabaseServer'
-#       filePath: 'deployment\Prepcicd.ps1'
-#       errorActionPreference: 'stop'
-#     env:
-#       Global_AppUserPassword: $(Global.AppUserPassword)
-#       ${{ format('{0}_AppUserPassword', variables['PipelineStackName']) }}: ${{ format('{0}_AppUserPassword', variables['PipelineStackName']) }}
-
-#   - task: PowerShell@2
-#     displayName: 'Pack Common Nuget Dependencies'
-#     inputs:
-#       targetType: 'filePath'
-#       arguments: -Version $(Global.Version) -LocalNugetDirectory $(Build.ArtifactStagingDirectory)\nuget
-#       filePath: 'PackCommon.ps1'
-#       errorActionPreference: 'stop'
+  - task: powershell@2
+    name: prepcicd
+    displayname: 'configure variables to be used throughout the build pipeline (this yaml script).'
+    inputs:
+      targettype: 'filepath'
+      arguments: '-pipelinestackname $(pipelinestackname) -variablearray serviceclientid,serviceclientpassword,deployresourcegroupname,deploystackname,deploylocation,sitenames,appsku,allowedipaddresses,buildonly,appdatasource,appdatabase,appuserid,appuserpassword,appconnectiontimeoutinseconds,storagename,containername,databasename,databaseserver'
+      filepath: 'deployment\prepcicd.ps1'
+      erroractionpreference: 'stop'
+    env:
+     global_appuserpassword: $(global.appuserpassword)
+       ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}: ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}
+  - task: powershell@2
+    displayName: 'Pack Common Nuget Dependencies'
+    inputs:
+      targetType: 'filePath'
+      arguments: -Version $(Global.Version) -LocalNugetDirectory $(Build.ArtifactStagingDirectory)\nuget
+      filePath: 'PackCommon.ps1'
+      errorActionPreference: 'stop'
 
 #   - task: AzureFileCopy@3
 #     displayName: 'Copy nuget files to Azure Blob'
@@ -292,13 +291,13 @@ jobs:
 #       azureSubscription: '$(Global.AzureSubscription)'
 #       destination: azureBlob
 #       storage: '$(StorageName)'
-#       blobPrefix: builds
-#       containerName: '$(ContainerName)'
+       blobprefix: builds
+       containername: '$(containername)'
 
 #   - task: PowerShell@2
 #     displayName: 'Update Resources'
-#     inputs:
+# #     inputs:
 #       targetType: 'filePath'
 #       arguments: -ServiceClientId $(ServiceClientId) -ServiceClientPassword $(ServiceClientPassword) -ServicesDeployStackName $(DeployStackName)
-#       filePath: 'deployment/UpdateResources.ps1'
-#       errorActionPreference: 'stop'
+        filepath: 'deployment/updateresources.ps1'
+        ## erroractionpreference: 'stop'
