@@ -291,13 +291,13 @@ jobs:
 #       azureSubscription: '$(Global.AzureSubscription)'
 #       destination: azureBlob
 #       storage: '$(StorageName)'
-       blobprefix: builds
-       containername: '$(containername)'
+      #  blobprefix: builds
+      #  containername: '$(containername)'
 
 #   - task: PowerShell@2
 #     displayName: 'Update Resources'
 # #     inputs:
 #       targetType: 'filePath'
 #       arguments: -ServiceClientId $(ServiceClientId) -ServiceClientPassword $(ServiceClientPassword) -ServicesDeployStackName $(DeployStackName)
-        filepath: 'deployment/updateresources.ps1'
+        # filepath: 'deployment/updateresources.ps1'
         ## erroractionpreference: 'stop'
