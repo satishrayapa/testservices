@@ -22,8 +22,8 @@ jobs:
       filepath: 'deployment\prepcicd.ps1'
       erroractionpreference: 'stop'
     env:
-     global_appuserpassword: $(global.appuserpassword)
-       ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}: ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}
+      global_appuserpassword: $(global.appuserpassword)
+      ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}: ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}
   - task: powershell@2
     displayName: 'Pack Common Nuget Dependencies'
     inputs:
