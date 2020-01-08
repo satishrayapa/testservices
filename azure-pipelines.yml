@@ -18,7 +18,7 @@ jobs:
     displayName: 'configure variables to be used throughout the build pipeline (this yaml script).'
     inputs:
       targettype: 'filepath'
-      arguments: '-pipelinestackname $(pipelinestackname) -variablearray serviceclientid,serviceclientpassword,deployresourcegroupname,deploystackname,deploylocation,sitenames,appsku,allowedipaddresses,buildonly,appdatasource,appdatabase,appuserid,appuserpassword,appconnectiontimeoutinseconds,storagename,containername,databasename,databaseserver'
+      arguments: '-pipelinestackname $(pipelinestackname) -variablearray serviceclientid,serviceclientpassword,deployresourcegroupname,deploystackname,deploylocation,sitenames,appsku,allowedipaddresses,buildonly,appdatasource,appdatabase,appuserid,appuserpassword,appconnectiontimeoutinseconds,StorageName,ContainerName,databasename,databaseserver'
       filepath: 'deployment\prepcicd.ps1'
       erroractionpreference: 'stop'
     env:
@@ -32,16 +32,16 @@ jobs:
       filePath: 'PackCommon.ps1'
       errorActionPreference: 'stop'
 
-#   - task: AzureFileCopy@3
-#     displayName: 'Copy nuget files to Azure Blob'
-#     condition: and(succeeded(), ne(variables['BuildOnly'], 'false'))
-#     inputs:
-#       sourcePath: $(Build.ArtifactStagingDirectory)\nuget
-#       azureSubscription: '$(Global.AzureSubscription)'
-#       blobPrefix: $(Build.BuildNumber)\nuget
-#       destination: azureBlob
-#       storage: '$(PrepCicd.StorageName)' 
-#       containerName: '$(PrepCicd.ContainerName)'
+  - task: AzureFileCopy@3
+    displayName: 'Copy nuget files to Azure Blob'
+    condition: and(succeeded(), ne(variables['BuildOnly'], 'false'))
+    inputs:
+      sourcePath: $(Build.ArtifactStagingDirectory)\nuget
+      azureSubscription: '$(Global.AzureSubscription)'
+      blobPrefix: $(Build.BuildNumber)\nuget
+      destination: azureBlob
+      storage: '$(PrepCicd.StorageName)' 
+      containerName: '$(PrepCicd.ContainerName)'
 
 #   - task: AzurePowerShell@4
 #     name: GetApiBearerToken
