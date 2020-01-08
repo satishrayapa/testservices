@@ -13,9 +13,9 @@ jobs:
       filePath: 'deployment\ConfigureStackName.ps1'
       errorActionPreference: 'stop'
   
-  - task: powershell@2
+  - task: Powershell@2
     name: prepcicd
-    displayname: 'configure variables to be used throughout the build pipeline (this yaml script).'
+    displayName: 'configure variables to be used throughout the build pipeline (this yaml script).'
     inputs:
       targettype: 'filepath'
       arguments: '-pipelinestackname $(pipelinestackname) -variablearray serviceclientid,serviceclientpassword,deployresourcegroupname,deploystackname,deploylocation,sitenames,appsku,allowedipaddresses,buildonly,appdatasource,appdatabase,appuserid,appuserpassword,appconnectiontimeoutinseconds,storagename,containername,databasename,databaseserver'
@@ -24,7 +24,7 @@ jobs:
     env:
       global_appuserpassword: $(global.appuserpassword)
       ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}: ${{ format('{0}_appuserpassword', variables['pipelinestackname']) }}
-  - task: powershell@2
+  - task: PowerShell@2
     displayName: 'Pack Common Nuget Dependencies'
     inputs:
       targetType: 'filePath'
